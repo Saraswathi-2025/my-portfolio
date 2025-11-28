@@ -13,11 +13,7 @@ function Exit() {
     <div className="exit-page">
       
       {/* Bunny Image */}
-      <img 
-        src="/bunny-wave.png" 
-        alt="Waving Bunny"
-        className="exit-bunny"
-      />
+      <img src={`${process.env.PUBLIC_URL}/bunny-wave.png`} alt="bunny-img" />
 
       {/* Title */}
       <h1 className="exit-title">Goodbye for now! 👋</h1>

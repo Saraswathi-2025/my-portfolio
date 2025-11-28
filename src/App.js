@@ -10,10 +10,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/exit" element={<Exit />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/about" element={<About />} />
+        <Route path="intro" element={<Intro />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        <Route path="about" element={<About />} />
+        <Route path="exit" element={<Exit />} />
       </Routes>
     </Router>
   );
