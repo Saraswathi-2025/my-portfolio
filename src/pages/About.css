@@ -34,7 +34,7 @@
 .about-bunny {
   width: 10px;
   margin-bottom: 0px;  /* moves bunny closer to button */
-  margin-top: -0px;     /* reduces large white gap */
+  margin-top: 0px;     /* reduces large white gap */
 }
 
 /* Button */
