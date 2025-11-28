@@ -15,6 +15,7 @@ const About = () => {
         alt="Girl" 
         className="about-girl fade-in-section"
       />
+      <img src={`${process.env.PUBLIC_URL}/girl.png`} alt="Girl" />
 
       {/* Title */}
       <h1 className="about-title fade-in-section">
@@ -34,7 +35,7 @@ const About = () => {
         alt="Bunny" 
         className="about-bunny fade-in-section"
       />
-
+<img src={`${process.env.PUBLIC_URL}/bunny.png`} alt="Bunny" />
       {/* Button */}
       <button 
         className="portfolio-btn fade-in-section"
