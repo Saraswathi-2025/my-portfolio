@@ -49,3 +49,21 @@
   transform: translateY(-5px);
   background: #caa2ff;
 }
+img {
+  width: 220px !important;    /* adjust size */
+  height: auto !important;    /* keeps shape */
+  display: block;
+  margin: 0 auto;
+}
+.bunny-img {
+  width: 180px;        /* change size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
