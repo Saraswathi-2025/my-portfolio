@@ -11,16 +11,13 @@
 
 /* ---- BUNNY IMAGE ---- */
 .bunny-img {
-<<<<<<< HEAD
   width: 200px;
   margin-top: -50px;           /* ⬅ moves bunny UP (fix big top gap) */
   margin-bottom: -30px;         /* gap between bunny & text */
-=======
+
   width: 260px;
   margin-top: 0px;           /* ⬅ moves bunny UP (fix big top gap) */
   margin-bottom: 0px;         /* gap between bunny & text */
->>>>>>> 5c265f65cb4559e64f1b5e61e1e8942136330d25
-
   animation: float 3s ease-in-out infinite;
 }
 
