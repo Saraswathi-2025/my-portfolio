@@ -29,7 +29,7 @@ const About = () => {
       {/* Button */}
       <button 
         className="portfolio-btn fade-in-section"
-        onClick={() => window.location.href = "/Portfolio"}
+        onClick={() => window.location.href = "#/portfolio"}
       >
         Go to Portfolio →
       </button>

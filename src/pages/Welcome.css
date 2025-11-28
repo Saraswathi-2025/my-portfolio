@@ -12,12 +12,11 @@
 /* ---- BUNNY IMAGE ---- */
 .bunny-img {
   width: 200px;
-  margin-top: -50px;           /* ⬅ moves bunny UP (fix big top gap) */
-  margin-bottom: -30px;         /* gap between bunny & text */
-
+  margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
+  margin-bottom: -80px;         /* gap between bunny & text */
   width: 260px;
-  margin-top: 0px;           /* ⬅ moves bunny UP (fix big top gap) */
-  margin-bottom: 0px;         /* gap between bunny & text */
+  margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
+  margin-bottom: 10px;         /* gap between bunny & text */
   animation: float 3s ease-in-out infinite;
 }
 
