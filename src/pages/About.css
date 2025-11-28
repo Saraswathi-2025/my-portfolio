@@ -11,8 +11,8 @@
 
 /* Girl Image ABOVE Title */
 .about-girl {
-  width: 80px;
-  margin-bottom: -150px;   /* small gap */
+  width: 20px;
+  margin-bottom: 0px;   /* small gap */
 }
 
 /* Heading */
@@ -32,9 +32,9 @@
 
 /* Bunny close to button */
 .about-bunny {
-  width: 50px;
-  margin-bottom: -10px;  /* moves bunny closer to button */
-  margin-top: -100px;     /* reduces large white gap */
+  width: 10px;
+  margin-bottom: 0px;  /* moves bunny closer to button */
+  margin-top: -0px;     /* reduces large white gap */
 }
 
 /* Button */
