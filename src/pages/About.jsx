@@ -10,11 +10,6 @@ const About = () => {
     <div className="about-container fade-in-section">
       
       {/* Girl Image */}
-      <img 
-        src="/girl.png" 
-        alt="Girl" 
-        className="about-girl fade-in-section"
-      />
       <img src={`${process.env.PUBLIC_URL}/girl.png`} alt="Girl" />
 
       {/* Title */}
@@ -30,11 +25,6 @@ const About = () => {
       </p>
 
       {/* Bunny Image */}
-      <img 
-        src="/bunny.png" 
-        alt="Bunny" 
-        className="about-bunny fade-in-section"
-      />
 <img src={`${process.env.PUBLIC_URL}/bunny.png`} alt="Bunny" />
       {/* Button */}
       <button 

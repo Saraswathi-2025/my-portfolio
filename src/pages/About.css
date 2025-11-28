@@ -33,7 +33,7 @@
 /* Bunny close to button */
 .about-bunny {
   width: 100px;
-  margin-bottom: -66px;  /* moves bunny closer to button */
+  margin-bottom: -10px;  /* moves bunny closer to button */
   margin-top: -30px;     /* reduces large white gap */
 }
 
