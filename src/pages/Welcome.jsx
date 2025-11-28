@@ -8,7 +8,7 @@ function Welcome() {
   return (
     <div className="welcome-page">
       {/* Bunny */}
-      <img src={`${process.env.PUBLIC_URL}/bunny-dev.png`} alt="Girl" />
+      <img src={`${process.env.PUBLIC_URL}/bunny-dev.png`} alt="bunny-img" />
 
 
       {/* Text */}
