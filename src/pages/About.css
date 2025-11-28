@@ -1,94 +1,32 @@
-.about-container {
+.about-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a, #1a002b);
+  padding: 50px 20px;
   color: white;
   text-align: center;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* Girl Image ABOVE Title */
-.about-girl {
-  width: 20px;
-  margin-bottom: -120px;   /* small gap */
+.about-img {
+  width: 260px;
+  animation: wave 3s ease-in-out infinite;
 }
 
-/* Heading */
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .about-title {
-  font-size: 2.5rem;
+  margin-top: 20px;
+  font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  color: #d8baff;
 }
 
-/* Paragraph */
 .about-text {
-  font-size: 1.2rem;
-  width: 60%;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-
-/* Bunny close to button */
-.about-bunny {
-  width: 10px;
-  margin-bottom: -100px;  /* moves bunny closer to button */
-  margin-top: -80px;     /* reduces large white gap */
-}
-
-/* Button */
-.portfolio-btn {
-  margin-top: 5px;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding: 12px 28px;
-  border-radius: 10px;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.portfolio-btn:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .about-text {
-    width: 90%;
-    font-size: 1rem;
-  }
-
-  .about-girl {
-    width: 80px;
-  }
-
-  .about-bunny {
-    width: 30px;
-  }
-
-  .about-title {
-    font-size: 2rem;
-  }
-}
-img {
-  width: 220px !important;    /* adjust size */
-  height: auto !important;    /* keeps shape */
-  display: block;
-  margin: 0 auto;
-}
-.bunny-img {
-  width: 160px;      /* SMALLER SIZE */
-  height: auto;
-  animation: float 3s ease-in-out infinite;
-  margin-bottom: 10px;
-}
-
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  max-width: 650px;
+  margin: 20px auto;
+  line-height: 1.7;
+  color: #e6d7ff;
 }

@@ -3,86 +3,59 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;     /* centers vertically */
-  align-items: center;         /* centers horizontally */
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(135deg, #0a0a0a, #1a002b);
   text-align: center;
 }
 
 /* ---- BUNNY IMAGE ---- */
 .bunny-img {
-  width: 200px;
-  margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
-  margin-bottom: -100px;         /* gap between bunny & text */
-  width: 260px;
-  margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
-  margin-bottom: 10px;         /* gap between bunny & text */
-  animation: float 3s ease-in-out infinite;
+  width: 230px;
+  animation: float 2.5s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
-/* ---- TEXT ---- */
 .welcome-text {
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
-  margin-bottom: 40px;         /* gap between text and buttons */
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
-/* ---- BUTTON ROW ---- */
+/* ---- BUTTONS ---- */
 .button-row {
   display: flex;
-  gap: 80px;                   /* space between YES / NO buttons */
+  gap: 40px;
 }
 
-/* ---- BUTTON STYLE ---- */
 .btn {
   padding: 10px 26px;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.25s ease;
 }
 
-/* YES BUTTON */
 .yes {
   background: #b47fff;
   color: white;
 }
 
-/* NO BUTTON */
 .no {
   background: #2e0147;
   color: #e5d4ff;
   border: 1px solid #b47fff;
 }
 
-/* ---- HOVER EFFECT (smooth lift-up) ---- */
 .btn:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
-}
-img {
-  width: 220px !important;    /* adjust size */
-  height: auto !important;    /* keeps shape */
-  display: block;
-  margin: 0 auto;
-}
-.bunny-img {
-  width: 180px;        /* change size */
-  height: auto;
-  display: block;
-  margin: 10px;
-  animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
 }
