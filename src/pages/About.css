@@ -12,7 +12,7 @@
 /* Girl Image ABOVE Title */
 .about-girl {
   width: 20px;
-  margin-bottom: 0px;   /* small gap */
+  margin-bottom: -120px;   /* small gap */
 }
 
 /* Heading */
@@ -33,8 +33,8 @@
 /* Bunny close to button */
 .about-bunny {
   width: 10px;
-  margin-bottom: 0px;  /* moves bunny closer to button */
-  margin-top: 0px;     /* reduces large white gap */
+  margin-bottom: -100px;  /* moves bunny closer to button */
+  margin-top: -80px;     /* reduces large white gap */
 }
 
 /* Button */
@@ -81,14 +81,14 @@ img {
   margin: 0 auto;
 }
 .bunny-img {
-  width: 180px;        /* change size */
+  width: 160px;      /* SMALLER SIZE */
   height: auto;
-  display: block;
-  margin: 0 auto;
   animation: float 3s ease-in-out infinite;
+  margin-bottom: 10px;
 }
+
 @keyframes float {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
+  50%  { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }

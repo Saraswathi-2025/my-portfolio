@@ -13,7 +13,7 @@
 .bunny-img {
   width: 200px;
   margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
-  margin-bottom: -80px;         /* gap between bunny & text */
+  margin-bottom: -100px;         /* gap between bunny & text */
   width: 260px;
   margin-top: 10px;           /* ⬅ moves bunny UP (fix big top gap) */
   margin-bottom: 10px;         /* gap between bunny & text */
@@ -78,7 +78,7 @@ img {
   width: 180px;        /* change size */
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 10px;
   animation: float 3s ease-in-out infinite;
 }
 @keyframes float {

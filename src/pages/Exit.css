@@ -13,7 +13,7 @@
 .exit-bunny {
   width: 260px;
   animation: wave 2s ease-in-out infinite;
-  margin-bottom: -60px;
+  margin-bottom: 0px;
 }
 
 @keyframes wave {
@@ -56,14 +56,14 @@ img {
   margin: 0 auto;
 }
 .bunny-img {
-  width: 180px;        /* change size */
+  width: 160px;      /* SMALLER SIZE */
   height: auto;
-  display: block;
-  margin: 0 auto;
   animation: float 3s ease-in-out infinite;
+  margin-bottom: 10px;
 }
+
 @keyframes float {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
+  50%  { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
