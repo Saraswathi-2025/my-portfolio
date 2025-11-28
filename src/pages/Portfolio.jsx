@@ -11,9 +11,11 @@ const fadeIn = {
 };
 
 function Portfolio() {
+
+  // Detect mobile
   const isMobile = window.innerWidth < 600;
 
-  // Section References
+  // Refs
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
@@ -25,7 +27,7 @@ function Portfolio() {
   const [hoverLinkedin, setHoverLinkedin] = useState(false);
   const [hoverProject, setHoverProject] = useState(null);
 
-  // 🔹 All future projects stored here — editable anytime
+  // Future Projects Here (Editable Anytime)
   const projectList = [
     {
       title: "Portfolio Website",
@@ -45,160 +47,157 @@ function Portfolio() {
   ];
 
   return (
-    <>
-      <div style={styles.container}>
+    <div style={styles.container}>
 
-        <Navbar
-          scrollToSkills={skillsRef}
-          scrollToProjects={projectsRef}
-          scrollToContact={contactRef}
-        />
+      <Navbar
+        scrollToSkills={skillsRef}
+        scrollToProjects={projectsRef}
+        scrollToContact={contactRef}
+      />
 
-        {/* HERO */}
-        <motion.section
-          style={styles.hero}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+      {/* HERO SECTION */}
+      <motion.section
+        style={styles.hero}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 style={styles.title}>
+          Hi, I'm <span style={styles.name}>Saraswathi</span>
+        </h1>
+
+        <p style={styles.subtitle}>Full-Stack Developer (Learning)</p>
+
+        <a
+          href="/my-portfolio/Saraswathi_ATS.pdf"
+          download
+          style={{
+            ...styles.resumeButton,
+            ...(hoverResume ? styles.resumeButtonHover : {})
+          }}
+          onMouseEnter={() => setHoverResume(true)}
+          onMouseLeave={() => setHoverResume(false)}
         >
-          <h1 style={styles.title}>
-            Hi, I'm <span style={styles.name}>Saraswathi</span>
-          </h1>
+          Download Resume
+        </a>
+      </motion.section>
 
-          <p style={styles.subtitle}>Full-Stack Developer (Learning)</p>
+      {/* SKILLS */}
+      <section ref={skillsRef}>
+        <motion.section {...fadeIn} style={styles.skillsSection}>
+          <h2 style={styles.sectionTitle}>Skills</h2>
 
-          <a
-            href="/Saraswathi_ATS.pdf"
-            download
-            style={{
-              ...styles.resumeButton,
-              ...(hoverResume ? styles.resumeButtonHover : {})
-            }}
-            onMouseEnter={() => setHoverResume(true)}
-            onMouseLeave={() => setHoverResume(false)}
-          >
-            Download Resume
-          </a>
+          <div style={styles.skillsGrid}>
+            <span style={styles.skill}>HTML</span>
+            <span style={styles.skill}>CSS</span>
+            <span style={styles.skill}>JavaScript</span>
+            <span style={styles.skill}>React (Learning)</span>
+            <span style={styles.skill}>Node.js (Learning)</span>
+            <span style={styles.skill}>Git</span>
+            <span style={styles.skill}>GitHub</span>
+            <span style={styles.skill}>VS Code</span>
+            <span style={styles.skill}>Responsive Design</span>
+            <span style={styles.skill}>Basic UI/UX</span>
+          </div>
         </motion.section>
+      </section>
 
-        {/* SKILLS */}
-        <section ref={skillsRef}>
-          <motion.section {...fadeIn} style={styles.skillsSection}>
-            <h2 style={styles.sectionTitle}>Skills</h2>
+      {/* PROJECTS */}
+      <section ref={projectsRef}>
+        <motion.section {...fadeIn} style={styles.projectsSection}>
+          <h2 style={styles.sectionTitle}>Projects</h2>
 
-            <div style={styles.skillsGrid}>
-              <span style={styles.skill}>HTML</span>
-              <span style={styles.skill}>CSS</span>
-              <span style={styles.skill}>JavaScript</span>
-              <span style={styles.skill}>React (Learning)</span>
-              <span style={styles.skill}>Node.js (Learning)</span>
-              <span style={styles.skill}>Git</span>
-              <span style={styles.skill}>GitHub</span>
-              <span style={styles.skill}>VS Code</span>
-              <span style={styles.skill}>Responsive Design</span>
-              <span style={styles.skill}>Basic UI/UX</span>
-            </div>
-          </motion.section>
-        </section>
+          <div style={styles.projectGrid}>
+            {projectList.map((project, index) => (
+              <div
+                key={index}
+                style={{
+                  ...styles.projectCard,
+                  ...(hoverProject === index ? styles.projectCardHover : {})
+                }}
+                onMouseEnter={() => setHoverProject(index)}
+                onMouseLeave={() => setHoverProject(null)}
+              >
+                <h3 style={styles.projectTitle}>{project.title}</h3>
+                <p style={styles.projectDesc}>{project.desc}</p>
 
-        {/* PROJECTS */}
-        <section ref={projectsRef}>
-          <motion.section {...fadeIn} style={styles.projectsSection}>
-            <h2 style={styles.sectionTitle}>Projects</h2>
-
-            <div style={styles.projectGrid}>
-              {projectList.map((project, index) => (
-                <div
-                  key={index}
-                  style={{
-                    ...styles.projectCard,
-                    ...(hoverProject === index ? styles.projectCardHover : {})
-                  }}
-                  onMouseEnter={() => setHoverProject(index)}
-                  onMouseLeave={() => setHoverProject(null)}
+                <a
+                  style={styles.projectLink}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  <h3 style={styles.projectTitle}>{project.title}</h3>
-                  <p style={styles.projectDesc}>{project.desc}</p>
+                  View Project →
+                </a>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      </section>
 
-                  <a
-                    style={styles.projectLink}
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Project →
-                  </a>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        </section>
+      {/* CONTACT */}
+      <section ref={contactRef}>
+        <motion.section {...fadeIn} style={styles.contactSection}>
+          <h2 style={styles.sectionTitle}>Contact</h2>
 
-        {/* CONTACT */}
-        <section ref={contactRef}>
-          <motion.section {...fadeIn} style={styles.contactSection}>
-            <h2 style={styles.sectionTitle}>Contact</h2>
+          <p style={styles.contactText}>
+            Feel free to reach out for collaborations or opportunities.
+          </p>
 
-            <p style={styles.contactText}>
-              Feel free to reach out for collaborations or opportunities.
-            </p>
+          <div style={styles.contactLinks}>
 
-            <div style={styles.contactLinks}>
+            <a
+              className="contact-btn"
+              style={{
+                ...styles.contactLink,
+                ...(hoverEmail ? styles.contactLinkHover : {})
+              }}
+              onMouseEnter={() => setHoverEmail(true)}
+              onMouseLeave={() => setHoverEmail(false)}
+              href="mailto:saraswathiachari02@gmail.com"
+            >
+              📧 Email
+            </a>
 
-              <a
-                className="contact-btn"
-                style={{
-                  ...styles.contactLink,
-                  ...(hoverEmail ? styles.contactLinkHover : {})
-                }}
-                onMouseEnter={() => setHoverEmail(true)}
-                onMouseLeave={() => setHoverEmail(false)}
-                href="mailto:saraswathiachari02@gmail.com"
-              >
-                📧 Email
-              </a>
+            <a
+              className="contact-btn"
+              style={{
+                ...styles.contactLink,
+                ...(hoverGit ? styles.contactLinkHover : {})
+              }}
+              onMouseEnter={() => setHoverGit(true)}
+              onMouseLeave={() => setHoverGit(false)}
+              href="https://github.com/Saraswathi-2025"
+              target="_blank"
+            >
+              🐙 GitHub
+            </a>
 
-              <a
-                className="contact-btn"
-                style={{
-                  ...styles.contactLink,
-                  ...(hoverGit ? styles.contactLinkHover : {})
-                }}
-                onMouseEnter={() => setHoverGit(true)}
-                onMouseLeave={() => setHoverGit(false)}
-                href="https://github.com/Saraswathi-2025"
-                target="_blank"
-              >
-                🐙 GitHub
-              </a>
+            <a
+              className="contact-btn"
+              style={{
+                ...styles.contactLink,
+                ...(hoverLinkedin ? styles.contactLinkHover : {})
+              }}
+              onMouseEnter={() => setHoverLinkedin(true)}
+              onMouseLeave={() => setHoverLinkedin(false)}
+              href="https://www.linkedin.com/in/saraswathi-achari-89b2a4304"
+              target="_blank"
+            >
+              🔗 LinkedIn
+            </a>
 
-              <a
-                className="contact-btn"
-                style={{
-                  ...styles.contactLink,
-                  ...(hoverLinkedin ? styles.contactLinkHover : {})
-                }}
-                onMouseEnter={() => setHoverLinkedin(true)}
-                onMouseLeave={() => setHoverLinkedin(false)}
-                href="https://www.linkedin.com/in/saraswathi-achari-89b2a4304"
-                target="_blank"
-              >
-                🔗 LinkedIn
-              </a>
+          </div>
+        </motion.section>
+      </section>
 
-            </div>
-          </motion.section>
-        </section>
-
-      </div>
-    </>
+    </div>
   );
 }
 
 //
-//  STYLES (unchanged)
+//  STYLES
 //
-
 const styles = {
   container: {
     minHeight: "100vh",
@@ -227,6 +226,7 @@ const styles = {
     fontSize: "1rem",
     transition: "0.3s",
   },
+
   resumeButtonHover: { transform: "scale(1.05)", backgroundColor: "#c89bff" },
 
   skillsSection: { marginTop: "80px", textAlign: "center" },
@@ -292,7 +292,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     gap: "15px",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
 
   contactLink: {
@@ -307,24 +307,8 @@ const styles = {
 
   contactLinkHover: {
     transform: "translateY(-5px)",
-    boxShadow: "0 6px 15px rgba(0,0,0,0.3)",
-  },
+    boxShadow: "0 6px 15px rgba(0,0,0,0.3)"
+  }
 };
-
-// Mobile button size fix
-if (typeof document !== "undefined") {
-  const css = `
-    @media (max-width: 480px) {
-      .contact-btn {
-        padding: 8px 10px !important;
-        font-size: 0.75rem !important;
-        min-width: 70px !important;
-      }
-    }
-  `;
-  const style = document.createElement("style");
-  style.appendChild(document.createTextNode(css));
-  document.head.appendChild(style);
-}
 
 export default Portfolio;
