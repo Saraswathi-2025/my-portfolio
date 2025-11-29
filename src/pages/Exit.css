@@ -13,8 +13,8 @@
 /* ---- Bunny Image ---- */
 .exit-bunny {
   width: 290px;
-  margin-top: 0px;          /* reduce gap above */
-  margin-bottom: -80px;         /* reduce gap before text */
+  margin-top: -50px;          /* reduce gap above */
+  margin-bottom: -75px;         /* reduce gap before text */
   animation: float 3s ease-in-out infinite,
              wave 2.5s ease-in-out infinite;
 }

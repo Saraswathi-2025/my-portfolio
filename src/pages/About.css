@@ -65,6 +65,22 @@
   100% { transform: translateY(0); } 
 } */
 
+/* 🔊 Speaker Button */
+.speaker-btn {
+  margin-top: 15px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #b47fff;
+  transition: 0.3s ease;
+}
+
+.speaker-btn:hover {
+  transform: scale(1.2);
+  color: #d8b4ff;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .about-text {
@@ -83,4 +99,59 @@
   .about-title {
     font-size: 2rem;
   }
+}
+/* Voice Toggle Switch */
+.voice-toggle {
+  position: relative;
+  width: 55px;
+  height: 28px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.voice-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff33;   /* glassy purple */
+  border-radius: 50px;
+  transition: 0.3s;
+  border: 1px solid #b47fff;
+}
+
+.slider:before {
+  content: "🔈";  /* speaker icon */
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #5e2acf;
+  border-radius: 50%;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+/* When ON */
+input:checked + .slider {
+  background: #b47fff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background: white;
+  content: "🔊";   /* loudspeaker icon */
 }
