@@ -1,40 +1,52 @@
-.home-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a, #1a002b);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+:root{
+  --bg: #0a0a0f;
+  --panel: linear-gradient(180deg,#0d0224,#12001e);
+  --accent: #b47fff;
+  --muted: #cfcbe1;
 }
-
-.home-title {
-  font-size: 3rem;
-  font-weight: bold;
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+.home-container{
+  min-height: calc(100vh - 62px);
+  background: radial-gradient(circle at 10% 10%, rgba(180,127,255,0.06), transparent 20%),
+              linear-gradient(180deg,#07050a 0%, #12001e 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 16px;
+  color:var(--muted);
 }
-
-.home-title span {
-  color: #b47fff;
+.home-card{
+  max-width:1100px;
+  width:100%;
+  display:flex;
+  gap:28px;
+  align-items:center;
+  justify-content:space-between;
 }
-
-.home-subtitle {
-  font-size: 1.2rem;
-  margin-top: 10px;
-  opacity: 0.8;
+.home-left{
+  flex:1;
+  padding-right:20px;
 }
-
-.home-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 30px;
-  background: #b47fff;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
+.home-right{
+  width:360px;
+  flex:0 0 360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
-.home-btn:hover {
-  transform: translateY(-5px);
-  background: #c79aff;
+.home-right img{width:320px;max-width:100%;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.home-title{font-size:2.05rem;margin:0;color:#fff}
+.home-title span{color:var(--accent)}
+.home-role{font-size:1.05rem;margin:8px 0;color:#d8cff5}
+.home-desc{line-height:1.6;color:#cfcbe1;margin-top:18px;max-width:720px}
+.home-actions{margin-top:24px;display:flex;gap:12px}
+.btn{display:inline-block;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:rgba(255,255,255,0.06);color:#e8e0ff;border:1px solid rgba(255,255,255,0.04)}
+/* responsive */
+@media (max-width:900px){
+  .home-card{flex-direction:column;align-items:center;text-align:center}
+  .home-right{order:0;width:260px}
+  .home-left{padding:0}
 }

@@ -1,40 +1,29 @@
 import React from "react";
-import "./Projects.css";
+import "./styles/Projects.css";
 
-function Projects() {
-  const list = [
-    {
-      title: "Portfolio Website",
-      desc: "A modern personal portfolio built using React.",
-      link: "https://saraswathi-2025.github.io/MyPortfolio/"
-    },
-    {
-      title: "Music Player",
-      desc: "A simple web-based music player using JavaScript.",
-      link: "https://saraswathi-2025.github.io/Music-Player/"
-    },
-    {
-      title: "Student Registration System",
-      desc: "A form-based student entry system using HTML/CSS/JS.",
-      link: "https://saraswathi-2025.github.io/SMCEC/"
-    }
-  ];
-
+const Projects = () => {
   return (
-    <div className="projects-container">
-      <h1 className="projects-title">Projects</h1>
+    <main className="page-wrap">
+      <div className="page-inner">
+        <h1>Projects</h1>
+        <p className="muted">Selected projects — short summary & links.</p>
 
-      <div className="projects-grid">
-        {list.map((p, i) => (
-          <div key={i} className="project-card">
-            <h2>{p.title}</h2>
-            <p>{p.desc}</p>
-            <a href={p.link} target="_blank" rel="noreferrer">View Project →</a>
-          </div>
-        ))}
+        <div className="grid">
+          <article className="card">
+            <h3>Project Alpha</h3>
+            <p>Responsive React app with clean UI & simple CMS integration.</p>
+            <a className="link" href="#">View</a>
+          </article>
+
+          <article className="card">
+            <h3>Project Beta</h3>
+            <p>Performance-focused SPA using optimized assets and lazy loading.</p>
+            <a className="link" href="#">View</a>
+          </article>
+        </div>
       </div>
-    </div>
+    </main>
   );
-}
+};
 
 export default Projects;

@@ -1,24 +1,20 @@
 import React from "react";
-import "./Skills.css";
+import "./styles/Skills.css";
 
-function Skills() {
-  const skills = [
-    "HTML", "CSS", "JavaScript",
-    "React", "Git", "GitHub",
-    "Responsive Design", "UI/UX Basics"
-  ];
-
+const Skills = () => {
   return (
-    <div className="skills-container">
-      <h1 className="skills-title">Skills</h1>
-
-      <div className="skills-grid">
-        {skills.map((s, i) => (
-          <div key={i} className="skill-box">{s}</div>
-        ))}
+    <main className="page-wrap">
+      <div className="page-inner">
+        <h1>Skills</h1>
+        <ul className="skill-list">
+          <li>React / Redux</li>
+          <li>TypeScript / JavaScript</li>
+          <li>HTML & CSS (responsive, accessibility)</li>
+          <li>Performance & web fundamentals</li>
+        </ul>
       </div>
-    </div>
+    </main>
   );
-}
+};
 
 export default Skills;
