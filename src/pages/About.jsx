@@ -3,14 +3,17 @@ import useFadeIn from "../hooks/useFadeIn";
 import "./About.css";
 
 const About = () => {
-  // activate scroll fade-in animations
   useFadeIn();
 
   return (
     <div className="about-container fade-in-section">
       
       {/* Girl Image */}
-      <img src={`${process.env.PUBLIC_URL}/girl.png`} alt="Girl" />
+      <img 
+        src={`${process.env.PUBLIC_URL}/girl.png`} 
+        alt="Girl" 
+        className="about-girl"
+      />
 
       {/* Title */}
       <h1 className="about-title fade-in-section">
@@ -19,13 +22,18 @@ const About = () => {
 
       {/* About Text */}
       <p className="about-text fade-in-section">
-        I am a passionate Web Developer who loves creating clean, modern, 
-        and functional websites. I enjoy learning new technologies and 
+        I am a passionate Web Developer who loves creating clean, modern,
+        and functional websites. I enjoy learning new technologies and
         improving myself every day!
       </p>
 
       {/* Bunny Image */}
-<img src={`${process.env.PUBLIC_URL}/bunny.png`} alt="Bunny" />
+      <img 
+        src={`${process.env.PUBLIC_URL}/bunny.png`} 
+        alt="Bunny" 
+        className="about-bunny"
+      />
+
       {/* Button */}
       <button 
         className="portfolio-btn fade-in-section"
