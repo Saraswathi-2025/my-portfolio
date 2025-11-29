@@ -11,11 +11,11 @@
 
 /* ---- BUNNY IMAGE ---- */
 .bunny-img {
-  width: 240px;                 /* correct size */
+  width: 300px;                 /* correct size */
   margin-top: -40px;            /* reduce top gap */
-  margin-bottom: 10px;          /* small space before text */
-  animation: float 3s ease-in-out infinite,
-             wave 2.5s ease-in-out infinite;
+  margin-bottom: -28px;          /* small space before text */
+  animation: float 4s ease-in-out infinite,
+             wave 2s ease-in-out infinite;
 }
 
 /* FLOAT ANIMATION */
@@ -40,13 +40,13 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
-  margin-bottom: 30px;          /* INCREASE gap before buttons */
+  margin-bottom: 25px;          /* INCREASE gap before buttons */
 }
 
 /* ---- BUTTON ROW ---- */
 .button-row {
   display: flex;
-  gap: 30px;                    /* better spacing */
+  gap: 80px;                    /* better spacing */
 }
 
 /* ---- BUTTON STYLE ---- */
