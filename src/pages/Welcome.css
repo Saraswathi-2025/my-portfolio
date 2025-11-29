@@ -11,9 +11,9 @@
 
 /* ---- BUNNY IMAGE ---- */
 .bunny-img {
-  width: 260px;
-  margin-top: -90px;
-  margin-bottom: -25px;
+  width: 250px;
+  margin-top: 10px;
+  margin-bottom: -80px;
   animation: float 3s ease-in-out infinite,  /* existing float */
              wave 2.5s ease-in-out infinite; /* NEW waving */
 }
@@ -40,13 +40,13 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
-  margin-bottom: 25px;
+  margin-bottom: -10px;
 }
 
 /* ---- BUTTON ROW ---- */
 .button-row {
   display: flex;
-  gap: 25px;
+  gap: 2px;
 }
 
 /* ---- BUTTON STYLE ---- */
