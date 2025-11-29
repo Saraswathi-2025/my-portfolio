@@ -13,7 +13,7 @@
 .exit-bunny {
   width: 260px;
   animation: wave 2s ease-in-out infinite;
-  margin-bottom: -0px;
+  margin-bottom: -60px;
 }
 
 @keyframes wave {
