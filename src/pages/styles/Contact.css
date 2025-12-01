@@ -1,5 +1,36 @@
-.page-wrap{min-height:calc(100vh - 62px);padding:48px 20px;background:linear-gradient(180deg,#07050a,#12001e);color:#e6def8}
-.page-inner{max-width:900px;margin:0 auto}
-.contact-grid{display:flex;gap:12px;flex-wrap:wrap}
-.card{background:rgba(255,255,255,0.03);padding:16px;border-radius:10px}
-a{color:#b47fff}
+.contact-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a, #1a002b);
+  padding: 120px 20px 40px;
+  color: white;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #d2b8ff;
+  margin-bottom: 10px;
+}
+
+.contact-subtext {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.contact-details a {
+  color: #b47fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+  color: #d8c3ff;
+}

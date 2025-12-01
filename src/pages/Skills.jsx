@@ -1,20 +1,44 @@
 import React from "react";
-import "./styles/Skills.css";
+import "../styles/Skills.css";
 
-const Skills = () => {
+function Skills() {
   return (
-    <main className="page-wrap">
-      <div className="page-inner">
-        <h1>Skills</h1>
-        <ul className="skill-list">
-          <li>React / Redux</li>
-          <li>TypeScript / JavaScript</li>
-          <li>HTML & CSS (responsive, accessibility)</li>
-          <li>Performance & web fundamentals</li>
-        </ul>
+    <div className="skills-container">
+      <h1 className="skills-title">Skills</h1>
+
+      <div className="skills-list">
+        <div className="skill-category">
+          <h2>Frontend</h2>
+          <ul>
+            <li>HTML / CSS</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React.js</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+
+        <div className="skill-category">
+          <h2>Tools & Libraries</h2>
+          <ul>
+            <li>Git & GitHub</li>
+            <li>Figma (UI/UX)</li>
+            <li>VS Code</li>
+            <li>React Router</li>
+          </ul>
+        </div>
+
+        <div className="skill-category">
+          <h2>Soft Skills</h2>
+          <ul>
+            <li>Problem Solving</li>
+            <li>Communication</li>
+            <li>Time Management</li>
+            <li>Team Collaboration</li>
+          </ul>
+        </div>
       </div>
-    </main>
+    </div>
   );
-};
+}
 
 export default Skills;

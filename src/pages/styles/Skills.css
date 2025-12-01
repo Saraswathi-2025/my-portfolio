@@ -1,4 +1,59 @@
-.page-wrap{min-height:calc(100vh - 62px);padding:48px 20px;background:linear-gradient(180deg,#07050a,#12001e);color:#e6def8}
-.page-inner{max-width:900px;margin:0 auto}
-.skill-list{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0;margin-top:12px}
-.skill-list li{background:rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px}
+.skills-container {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0a0a0a, #1a002b);
+  color: white;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #c8a2ff;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  width: 260px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+.skill-category h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #b47fff;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-category li {
+  margin: 8px 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 2.2rem;
+  }
+
+  .skill-category {
+    width: 85%;
+  }
+}
