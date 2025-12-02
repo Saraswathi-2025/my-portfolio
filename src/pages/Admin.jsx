@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function Admin() {
-  const PASSWORD = "12345678";
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [passwordInput, setPasswordInput] = useState("");
-  const [projects, setProjects] = useState([]);
-  const [newProject, setNewProject] = useState({
+
+  const [form, setForm] = useState({
     id: "",
     title: "",
     subtitle: "",
@@ -15,134 +13,101 @@ export default function Admin() {
     screenshots: ""
   });
 
-  // Load existing from localStorage OR fallback from project.json
-  useEffect(() => {
-    const stored = localStorage.getItem("projects");
-    if (stored) {
-      setProjects(JSON.parse(stored));
-    } else {
-      fetch("/project.json")
-        .then(res => res.json())
-        .then(data => {
-          setProjects(data.projects);
-          localStorage.setItem("projects", JSON.stringify(data.projects));
-        });
-    }
-  }, []);
-
   const handleLogin = () => {
-    if (passwordInput === PASSWORD) {
+    if (passwordInput === "12345678") {
       setLoggedIn(true);
     } else {
-      alert("Wrong password!");
+      alert("Incorrect Password!");
     }
   };
 
-  const handleAddProject = () => {
-    if (
-      !newProject.id ||
-      !newProject.title ||
-      !newProject.github
-    ) {
-      alert("ID, Title, and GitHub link are required.");
-      return;
-    }
+  const handleAdd = () => {
+    const screenshotsArray = form.screenshots.split(",").map(s => s.trim());
 
-    const screenshotsArray = newProject.screenshots
-      .split(",")
-      .map(s => s.trim());
+    const newProject = {
+      id: form.id,
+      title: form.title,
+      subtitle: form.subtitle,
+      description: form.description,
+      github: form.github,
+      screenshots: screenshotsArray
+    };
 
-    const updated = [
-      ...projects,
-      { ...newProject, screenshots: screenshotsArray }
-    ];
+    const existing = JSON.parse(localStorage.getItem("extraProjects")) || [];
+    existing.push(newProject);
 
-    setProjects(updated);
-    localStorage.setItem("projects", JSON.stringify(updated));
+    localStorage.setItem("extraProjects", JSON.stringify(existing));
 
-    alert("Project added!");
-
-    setNewProject({
-      id: "",
-      title: "",
-      subtitle: "",
-      description: "",
-      github: "",
-      screenshots: ""
-    });
+    alert("Project Added Successfully!");
   };
+
+  if (!loggedIn) {
+    return (
+      <div style={{ padding: 40, textAlign: "center", color: "white" }}>
+        <h2>Admin Login</h2>
+
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={passwordInput}
+          onChange={(e) => setPasswordInput(e.target.value)}
+          style={{ padding: 10, width: 240, borderRadius: 8 }}
+        />
+        <br /><br />
+        <button onClick={handleLogin} style={{ padding: "10px 20px" }}>
+          Login
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ padding: "40px", color: "white" }}>
-      {!loggedIn ? (
-        <>
-          <h1>Admin Login</h1>
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={passwordInput}
-            onChange={(e) => setPasswordInput(e.target.value)}
-            style={{ padding: "10px", width: "250px" }}
-          />
-          <br /><br />
-          <button onClick={handleLogin} style={{ padding: "10px 20px" }}>
-            Login
-          </button>
-        </>
-      ) : (
-        <>
-          <h1>Admin Panel</h1>
+    <div style={{ padding: 40, color: "white" }}>
+      <h1>Add New Project</h1>
 
-          <h2>Add New Project</h2>
-          <input
-            placeholder="Project ID"
-            value={newProject.id}
-            onChange={(e) => setNewProject({ ...newProject, id: e.target.value })}
-          /><br /><br />
-          <input
-            placeholder="Title"
-            value={newProject.title}
-            onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-          /><br /><br />
-          <input
-            placeholder="Subtitle"
-            value={newProject.subtitle}
-            onChange={(e) =>
-              setNewProject({ ...newProject, subtitle: e.target.value })
-            }
-          /><br /><br />
-          <textarea
-            placeholder="Description"
-            value={newProject.description}
-            onChange={(e) =>
-              setNewProject({ ...newProject, description: e.target.value })
-            }
-          /><br /><br />
-          <input
-            placeholder="GitHub link"
-            value={newProject.github}
-            onChange={(e) => setNewProject({ ...newProject, github: e.target.value })}
-          /><br /><br />
-          <textarea
-            placeholder="Screenshots (comma separated)"
-            value={newProject.screenshots}
-            onChange={(e) =>
-              setNewProject({ ...newProject, screenshots: e.target.value })
-            }
-          /><br /><br />
+      <input
+        type="text"
+        placeholder="Project ID"
+        value={form.id}
+        onChange={(e) => setForm({ ...form, id: e.target.value })}
+      /><br /><br />
 
-          <button onClick={handleAddProject} style={{ padding: "10px 20px" }}>
-            Add Project
-          </button>
+      <input
+        type="text"
+        placeholder="Project Title"
+        value={form.title}
+        onChange={(e) => setForm({ ...form, title: e.target.value })}
+      /><br /><br />
 
-          <h2 style={{ marginTop: "40px" }}>Existing Projects</h2>
-          <ul>
-            {projects.map((p) => (
-              <li key={p.id}>{p.title}</li>
-            ))}
-          </ul>
-        </>
-      )}
+      <input
+        type="text"
+        placeholder="Subtitle"
+        value={form.subtitle}
+        onChange={(e) => setForm({ ...form, subtitle: e.target.value })}
+      /><br /><br />
+
+      <textarea
+        placeholder="Description"
+        value={form.description}
+        onChange={(e) => setForm({ ...form, description: e.target.value })}
+      ></textarea><br /><br />
+
+      <input
+        type="text"
+        placeholder="GitHub Link"
+        value={form.github}
+        onChange={(e) => setForm({ ...form, github: e.target.value })}
+      /><br /><br />
+
+      <textarea
+        placeholder="Screenshots (comma separated)"
+        value={form.screenshots}
+        onChange={(e) => setForm({ ...form, screenshots: e.target.value })}
+      ></textarea><br /><br />
+
+      <button onClick={handleAdd} style={{ padding: "10px 20px" }}>
+        Add Project
+      </button>
     </div>
   );
 }
