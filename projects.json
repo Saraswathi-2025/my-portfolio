@@ -4,7 +4,7 @@
       "id": "portfolio",
       "title": "Portfolio Website",
       "subtitle": "Tech used: HTML · CSS · JavaScript · React",
-      "description": "A modern portfolio website built to showcase my skills and learning journey. Responsive layout, smooth UI and clean presentation.",
+      "description": "A modern portfolio website built to showcase my skills and learning journey.",
       "github": "https://saraswathi-2025.github.io/MyPortfolio/",
       "screenshots": [
         "/screenshots/portfolio-1.png",
@@ -18,7 +18,7 @@
       "id": "music-player",
       "title": "Music Player",
       "subtitle": "Tech used: JavaScript · HTML · CSS",
-      "description": "A simple web-based music player demonstrating DOM interaction and playlist controls.",
+      "description": "A simple music player demonstrating DOM interaction and audio controls.",
       "github": "https://saraswathi-2025.github.io/Music-Player/",
       "screenshots": [
         "/screenshots/music-player-1.png",
@@ -32,7 +32,7 @@
       "id": "student-reg",
       "title": "Student Registration System",
       "subtitle": "Tech used: HTML · CSS · JavaScript",
-      "description": "A basic student registration form that validates input and stores demo data using localStorage.",
+      "description": "A basic registration form with input validation and localStorage.",
       "github": "https://saraswathi-2025.github.io/SMCEC/",
       "screenshots": [
         "/screenshots/SMCMC-1.png",
