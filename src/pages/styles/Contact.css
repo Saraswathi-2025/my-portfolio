@@ -24,7 +24,7 @@
 .contact-title {
   font-size: 32px;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, #000000, #7df0d9);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05));
   /*-webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
 }
