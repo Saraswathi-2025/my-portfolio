@@ -18,7 +18,7 @@
       "id": "music-player",
       "title": "Music Player",
       "subtitle": "Tech used: JavaScript · HTML · CSS",
-      "description": "A simple music player demonstrating DOM interaction and audio controls.",
+      "description": "A simple music player built using DOM interaction and audio APIs.",
       "github": "https://saraswathi-2025.github.io/Music-Player/",
       "screenshots": [
         "/screenshots/music-player-1.png",
@@ -32,7 +32,7 @@
       "id": "student-reg",
       "title": "Student Registration System",
       "subtitle": "Tech used: HTML · CSS · JavaScript",
-      "description": "A basic registration form with input validation and localStorage.",
+      "description": "A basic student registration form with validation and localStorage saving.",
       "github": "https://saraswathi-2025.github.io/SMCEC/",
       "screenshots": [
         "/screenshots/SMCMC-1.png",

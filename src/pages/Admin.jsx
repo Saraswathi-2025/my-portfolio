@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 export default function Admin() {
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const PASSWORD = "12345678";
 
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [passwordInput, setPasswordInput] = useState("");
+  const [projects, setProjects] = useState([]);
   const [newProject, setNewProject] = useState({
     id: "",
     title: "",
@@ -13,107 +15,134 @@ export default function Admin() {
     screenshots: ""
   });
 
-  // Load old data
-  const [projects, setProjects] = useState([]);
-
+  // Load existing from localStorage OR fallback from project.json
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + "/project.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const stored = JSON.parse(localStorage.getItem("extraProjects")) || [];
-        setProjects([...data.projects, ...stored]);
-      });
+    const stored = localStorage.getItem("projects");
+    if (stored) {
+      setProjects(JSON.parse(stored));
+    } else {
+      fetch("/project.json")
+        .then(res => res.json())
+        .then(data => {
+          setProjects(data.projects);
+          localStorage.setItem("projects", JSON.stringify(data.projects));
+        });
+    }
   }, []);
 
-  // Login function
-  function handleLogin() {
-    if (password === "Saraswathi@123") {
+  const handleLogin = () => {
+    if (passwordInput === PASSWORD) {
       setLoggedIn(true);
     } else {
       alert("Wrong password!");
     }
-  }
+  };
 
-  // Add project
-  function addProject() {
-    const project = {
-      ...newProject,
-      screenshots: newProject.screenshots
-        .split(",")
-        .map((s) => s.trim())
-    };
+  const handleAddProject = () => {
+    if (
+      !newProject.id ||
+      !newProject.title ||
+      !newProject.github
+    ) {
+      alert("ID, Title, and GitHub link are required.");
+      return;
+    }
 
-    const updated = [...projects, project];
+    const screenshotsArray = newProject.screenshots
+      .split(",")
+      .map(s => s.trim());
+
+    const updated = [
+      ...projects,
+      { ...newProject, screenshots: screenshotsArray }
+    ];
+
     setProjects(updated);
-
-    const extra = updated.slice(3); // store only admin-added projects
-    localStorage.setItem("extraProjects", JSON.stringify(extra));
+    localStorage.setItem("projects", JSON.stringify(updated));
 
     alert("Project added!");
-  }
 
-  if (!loggedIn) {
-    return (
-      <div style={{ padding: "40px", textAlign: "center", color: "white" }}>
-        <h2>Admin Login</h2>
-        <input
-          type="password"
-          placeholder="Enter admin password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: "10px", width: "240px" }}
-        />
-        <br /><br />
-        <button onClick={handleLogin}>Login</button>
-      </div>
-    );
-  }
+    setNewProject({
+      id: "",
+      title: "",
+      subtitle: "",
+      description: "",
+      github: "",
+      screenshots: ""
+    });
+  };
 
   return (
     <div style={{ padding: "40px", color: "white" }}>
-      <h1>Add New Project</h1>
+      {!loggedIn ? (
+        <>
+          <h1>Admin Login</h1>
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+            style={{ padding: "10px", width: "250px" }}
+          />
+          <br /><br />
+          <button onClick={handleLogin} style={{ padding: "10px 20px" }}>
+            Login
+          </button>
+        </>
+      ) : (
+        <>
+          <h1>Admin Panel</h1>
 
-      <input
-        type="text"
-        placeholder="ID"
-        onChange={(e) => setNewProject({ ...newProject, id: e.target.value })}
-      /><br /><br />
+          <h2>Add New Project</h2>
+          <input
+            placeholder="Project ID"
+            value={newProject.id}
+            onChange={(e) => setNewProject({ ...newProject, id: e.target.value })}
+          /><br /><br />
+          <input
+            placeholder="Title"
+            value={newProject.title}
+            onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
+          /><br /><br />
+          <input
+            placeholder="Subtitle"
+            value={newProject.subtitle}
+            onChange={(e) =>
+              setNewProject({ ...newProject, subtitle: e.target.value })
+            }
+          /><br /><br />
+          <textarea
+            placeholder="Description"
+            value={newProject.description}
+            onChange={(e) =>
+              setNewProject({ ...newProject, description: e.target.value })
+            }
+          /><br /><br />
+          <input
+            placeholder="GitHub link"
+            value={newProject.github}
+            onChange={(e) => setNewProject({ ...newProject, github: e.target.value })}
+          /><br /><br />
+          <textarea
+            placeholder="Screenshots (comma separated)"
+            value={newProject.screenshots}
+            onChange={(e) =>
+              setNewProject({ ...newProject, screenshots: e.target.value })
+            }
+          /><br /><br />
 
-      <input
-        type="text"
-        placeholder="Title"
-        onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-      /><br /><br />
+          <button onClick={handleAddProject} style={{ padding: "10px 20px" }}>
+            Add Project
+          </button>
 
-      <input
-        type="text"
-        placeholder="Subtitle"
-        onChange={(e) =>
-          setNewProject({ ...newProject, subtitle: e.target.value })
-        }
-      /><br /><br />
-
-      <textarea
-        placeholder="Description"
-        onChange={(e) =>
-          setNewProject({ ...newProject, description: e.target.value })
-        }
-      ></textarea><br /><br />
-
-      <input
-        type="text"
-        placeholder="GitHub URL"
-        onChange={(e) => setNewProject({ ...newProject, github: e.target.value })}
-      /><br /><br />
-
-      <textarea
-        placeholder="Screenshots (comma separated URLs)"
-        onChange={(e) =>
-          setNewProject({ ...newProject, screenshots: e.target.value })
-        }
-      ></textarea><br /><br />
-
-      <button onClick={addProject}>Add Project</button>
+          <h2 style={{ marginTop: "40px" }}>Existing Projects</h2>
+          <ul>
+            {projects.map((p) => (
+              <li key={p.id}>{p.title}</li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
