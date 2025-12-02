@@ -20,14 +20,14 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Title */
+/* Title 
 .contact-title {
   font-size: 32px;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05));
-  /*-webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;*/
-}
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}*/
 
 /* Sub text */
 .contact-sub {

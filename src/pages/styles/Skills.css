@@ -35,15 +35,15 @@
   transition: 0.25s ease;
 }
 
-/* Title inside box */
+/* Title inside box 
 .skill-box h3 {
   margin-bottom: 14px;
   font-size: 18px;
   font-weight: 700;
   background: linear-gradient(90deg,#6b5cff,#7df0d9);
-  /*-webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;*/
-}
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}*/
 
 /* Skill items */
 .skill-box p {
