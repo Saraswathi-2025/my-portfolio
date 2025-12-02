@@ -14,7 +14,7 @@ export default function Contact() {
 
         <div className="contact-buttons">
 
-          <a href="mailto:saraswathi@example.com" className="contact-btn">
+          <a href="mailto:saraswathiachari02@gmail.com" className="contact-btn">
             📧 Email
           </a>
 
@@ -25,7 +25,7 @@ export default function Contact() {
             🐙 GitHub
           </a>
 
-          <a href="https://linkedin.com" 
+          <a href="https://www.linkedin.com/in/saraswathi-achari-89b2a4304" 
              target="_blank"
              rel="noopener noreferrer"
              className="contact-btn">
