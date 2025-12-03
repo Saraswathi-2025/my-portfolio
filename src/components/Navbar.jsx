@@ -1,21 +1,62 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const loc = useLocation();
-  return (
-    <header className="nav-wrap">
-      <div className="container nav-inner">
-        <Link className="brand" to="/">Saraswathi</Link>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        <nav className="nav-links" aria-label="Primary">
-          <Link className={loc.pathname === "/" ? "active" : ""} to="/">Home</Link>
-          <Link className={loc.pathname === "/projects" ? "active" : ""} to="/projects">Projects</Link>
-          <Link className={loc.pathname === "/skills" ? "active" : ""} to="/skills">Skills</Link>
-          <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact</Link>
-        </nav>
+  return (
+    <nav className="navbar">
+
+      {/* Logo */}
+      <div className="nav-logo">Saraswathi</div>
+
+      {/* Desktop Links */}
+      <div className="nav-links">
+        <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/skills">Skills</NavLink>
+        <NavLink to="/resume">Resume</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        
       </div>
-    </header>
+      <nav className="navbar">
+  <div className="nav-logo">Saraswathi</div>
+
+  <div className="nav-links">
+    <NavLink to="/" end>Home</NavLink>
+    <NavLink to="/projects">Projects</NavLink>
+    <NavLink to="/skills">Skills</NavLink>
+    <NavLink to="/resume">Resume</NavLink>
+    <NavLink to="/contact">Contact</NavLink>
+  </div>
+
+  {/* Neon Theme Toggle */}
+  <div className="theme-toggle" onClick={() => document.body.classList.toggle("light-mode")}>
+    <div className="toggle-circle"></div>
+  </div>
+</nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        className={`menu-btn ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Mobile Dropdown Menu */}
+      <div className={`mobile-menu ${menuOpen ? "show" : ""}`}>
+        <NavLink onClick={() => setMenuOpen(false)} to="/" end>Home</NavLink>
+        <NavLink onClick={() => setMenuOpen(false)} to="/projects">Projects</NavLink>
+        <NavLink onClick={() => setMenuOpen(false)} to="/skills">Skills</NavLink>
+        <NavLink onClick={() => setMenuOpen(false)} to="/resume">Resume</NavLink>
+        <NavLink onClick={() => setMenuOpen(false)} to="/contact">Contact</NavLink>
+      </div>
+
+    </nav>
   );
 }

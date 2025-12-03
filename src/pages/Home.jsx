@@ -1,36 +1,73 @@
 import React from "react";
-import { motion } from "framer-motion";
 import "./Home.css";
 
-export default function Home(){
+export default function Home() {
   return (
-    <section className="home container" aria-labelledby="home-title">
-      <motion.div
-        className="home-inner"
-        initial={{ opacity:0, y:12 }}
-        animate={{ opacity:1, y:0 }}
-        transition={{ duration:0.6 }}
-      >
-        <div className="home-left">
-          <h1 id="home-title" className="h1">Hi — I'm <span className="name">Saraswathi</span></h1>
-          <p className="lead">Aspiring Frontend Developer — building clean, accessible, and delightful UI.</p>
+    <div className="home-page">
 
-          <p className="desc">
-            I specialize in responsive interfaces using HTML, CSS, JavaScript and React. I focus on clear UX, accessibility and polished micro-interactions.
+      <div className="home-container">
+
+        {/* LEFT = PROFILE CARD */}
+        <div className="left-section">
+          <div className="profile-card">
+            <img
+              src={process.env.PUBLIC_URL + "/profile.png"}
+              className="profile-img"
+              alt="Profile"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT = TEXT + BUTTONS */}
+        <div className="right-section">
+          <h1 className="home-title">
+            Hi — I'm <span className="gradient-name">Saraswathi</span>
+          </h1>
+
+          <p className="home-sub">
+            Aspiring Frontend Developer — building clean, accessible, and delightful UI.
+            I specialize in responsive interfaces using HTML, CSS, JavaScript, and React.
           </p>
 
-          <div className="home-ctas">
-            <a className="btn btn--primary" href="#/projects">View Projects</a>
-            <a className="btn btn--ghost" href="#/contact">Contact Me</a>
+          <div className="home-buttons">
+            <a href="#/projects" className="home-btn">View Projects</a>
+            <a href="#/contact" className="home-btn">Contact Me</a>
           </div>
         </div>
 
-        <div className="home-right" aria-hidden="true">
-          <div className="portrait card">
-            <img src={`${process.env.PUBLIC_URL}/profile.png`} alt="Saraswathi portrait" loading="lazy" />
+      </div>
+
+      {/* ⭐⭐⭐ TESTIMONIALS SECTION GOES HERE ⭐⭐⭐ */}
+      <div className="testimonials-section fade">
+        <h2 className="testimonials-title">What People Say</h2>
+
+        <div className="testimonials-grid">
+
+          <div className="testimonial-card">
+            <p className="testimonial-text">
+              “Saraswathi learns very fast, writes clean code, and pays strong attention to UI details.”
+            </p>
+            <span className="testimonial-author">— Mentor</span>
           </div>
+
+          <div className="testimonial-card">
+            <p className="testimonial-text">
+              “She communicates clearly and works well in teams. A promising frontend developer.”
+            </p>
+            <span className="testimonial-author">— Team Lead</span>
+          </div>
+
+          <div className="testimonial-card">
+            <p className="testimonial-text">
+              “Dedicated, consistent, and passionate about improving her skills every day.”
+            </p>
+            <span className="testimonial-author">— Classmate</span>
+          </div>
+
         </div>
-      </motion.div>
-    </section>
+      </div>
+      {/* END TESTIMONIALS */}
+
+    </div>
   );
 }

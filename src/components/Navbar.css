@@ -1,44 +1,212 @@
-.nav-wrap{
-  position:fixed;
-  inset:0 0 auto 0;
-  top:0;
-  z-index:1200;
-  background: linear-gradient(180deg, rgba(11,11,16,0.6), rgba(11,11,16,0.35));
-  backdrop-filter: blur(6px);
-  border-bottom:1px solid rgba(255,255,255,0.03);
+/* =========================================
+   NAVBAR BASE
+========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  z-index: 1000;
 }
-.nav-inner{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+
+/* =========================================
+   LOGO
+========================================= */
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.brand{
-  font-weight:800;
-  letter-spacing:0.6px;
-  text-decoration:none;
-  color:var(--accent-1);
-  background: var(--accent-grad);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-size:1.03rem;
+
+/* =========================================
+   DESKTOP LINKS
+========================================= */
+.nav-links {
+  display: flex;
+  gap: 28px;
 }
-.nav-links{
-  display:flex;
-  gap:18px;
-  align-items:center;
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.25s ease;
+  position: relative;
 }
-.nav-links a{
-  color:var(--muted-2);
-  text-decoration:none;
-  padding:8px 10px;
-  border-radius:8px;
-  font-weight:600;
-}
-.nav-links a.active, .nav-links a:hover{
+
+/* Hover Glow */
+.nav-links a:hover {
   color: white;
-  background: rgba(123,92,255,0.12);
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
 }
-@media (max-width:700px){
-  .nav-links{display:none}
+
+/* Active Link */
+.nav-links a.active {
+  color: #7df0d9;
+  font-weight: 600;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON (Hamburger)
+========================================= */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  z-index: 2000;
+}
+
+.menu-btn span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animate when open */
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================================
+   MOBILE DROPDOWN MENU
+========================================= */
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  right: -100%;
+  width: 60%;
+  height: calc(100% - 64px);
+
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.55);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 20px;
+
+  transition: 0.4s ease;
+  z-index: 1500;
+}
+
+.mobile-menu.show {
+  right: 0;
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: #7df0d9;
+}
+
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+========================================= */
+
+/* Tablet + Mobile */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 500px) {
+  .nav-logo {
+    font-size: 20px;
+  }
+
+  .mobile-menu {
+    width: 75%;
+  }
+}
+/* ============================
+   NEON THEME TOGGLE
+============================ */
+.theme-toggle {
+  width: 52px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+
+  /* glass look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  background: var(--accent-grad);
+  border-radius: 50%;
+  transition: 0.3s ease;
+
+  box-shadow: 0 0 10px rgba(125,240,217,0.4);
+}
+
+/* Light mode active — circle slides right */
+body.light-mode .toggle-circle {
+  transform: translateX(24px);
+}
+
+/* Background glow changes */
+body.light-mode .theme-toggle {
+  background: rgba(0,0,0,0.2);
+  border-color: rgba(125,240,217,0.4);
 }

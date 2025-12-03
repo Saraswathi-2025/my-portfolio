@@ -1,6 +1,115 @@
-.skills{padding:28px 0}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-.skill-card h4{margin:0 0 10px}
-.skill-card ul{list-style:none;padding:0;margin:0}
-.skill-card li{color:var(--muted-2);margin:6px 0}
-@media (max-width:900px){ .skills-grid{grid-template-columns:1fr} }
+/* =========================================
+   PAGE SPACING
+========================================= */
+.skills {
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Header */
+.skills-head {
+  margin-bottom: 26px;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* =========================================
+   GRID LAYOUT
+========================================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 28px;
+}
+
+/* =========================================
+   SKILL CARD
+========================================= */
+.skill-card {
+  padding: 24px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow */
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(125, 240, 217, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 255, 200, 0.28);
+}
+
+/* =========================================
+   TITLES
+========================================= */
+.skill-title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   LIST
+========================================= */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  font-size: 15px;
+  color: var(--muted-2);
+  margin: 7px 0;
+
+  transition: 0.3s ease;
+}
+
+/* hover micro-animation */
+.skill-item:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .skill-card {
+    padding: 20px;
+  }
+}

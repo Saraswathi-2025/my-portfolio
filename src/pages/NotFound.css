@@ -1,0 +1,118 @@
+/* ===========================
+   PAGE BACKGROUND
+=========================== */
+.nf-page {
+  min-height: 100vh;
+  padding: 140px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Futuristic glow behind */
+.nf-page::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0,255,200,0.22), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.nf-card {
+  position: relative;
+  z-index: 2;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Animated glowing border */
+.nf-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #6b5cff, #7df0d9);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  animation: nf-glow 5s linear infinite;
+}
+
+@keyframes nf-glow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* ===========================
+   TEXT
+=========================== */
+.nf-404 {
+  font-size: 80px;
+  font-weight: 800;
+
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 10px;
+}
+
+.nf-text {
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.nf-btn {
+  padding: 12px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  color: #000;
+  transition: 0.25s ease;
+}
+
+.nf-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,255,200,0.3);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nf-404 {
+    font-size: 62px;
+  }
+}

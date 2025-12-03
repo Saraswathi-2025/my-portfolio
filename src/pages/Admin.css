@@ -1,41 +1,42 @@
 /* =========================================
-   PAGE LAYOUT
+   ADMIN PAGE LAYOUT
 ========================================= */
-.contact {
-  padding: 50px 0;
+.admin-page {
+  min-height: 100vh;
+  padding: 90px 20px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 /* =========================================
-   CONTACT CARD
+   ADMIN CARD (Glassmorphism)
 ========================================= */
-.contact-card {
+.admin-card {
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   padding: 34px 28px;
-  text-align: center;
 
   background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 18px;
-
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 
   position: relative;
   animation: fadeUp 0.8s ease-out;
 }
 
-/* Glowing Border */
-.contact-card::before {
+/* Glowing Border Animation */
+.admin-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 18px;
   padding: 2px;
+  border-radius: 18px;
 
   background: linear-gradient(135deg, #6b5cff, #7df0d9);
   -webkit-mask:
@@ -44,77 +45,89 @@
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 
-  animation: glow 4s linear infinite;
+  animation: glow 5s linear infinite;
+  pointer-events: none;
 }
 
 /* =========================================
    TITLES
 ========================================= */
-.contact-title {
-  font-size: 32px;
+.admin-title {
+  font-size: 30px;
   font-weight: 700;
+  margin-bottom: 10px;
 
   background: linear-gradient(90deg, #6b5cff, #7df0d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  margin-bottom: 10px;
 }
 
-.contact-sub {
+.admin-sub {
   font-size: 15px;
   color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto 24px;
-  line-height: 1.6;
+  margin-bottom: 26px;
+  line-height: 1.5;
 }
 
 /* =========================================
-   ACTION BUTTONS
+   FORM AREA
 ========================================= */
-.contact-actions {
+.admin-form {
   display: flex;
+  flex-direction: column;
   gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
-/* Base Button */
-.contact-btn {
+/* Inputs */
+.admin-input,
+.admin-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+
+  outline: none;
+  transition: 0.25s ease;
+}
+
+/* Textarea height */
+.admin-textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+/* Input Focus Effect */
+.admin-input:focus,
+.admin-textarea:focus {
+  border-color: rgba(125, 240, 217, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+.admin-btn {
   padding: 12px 20px;
   border-radius: 12px;
-  font-size: 15px;
   font-weight: 600;
-  text-decoration: none;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
   transition: 0.3s ease;
 }
 
-/* Primary Button */
 .primary-btn {
   background: linear-gradient(90deg, #6b5cff, #7df0d9);
   color: #000;
 }
 
 .primary-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 26px rgba(0, 255, 200, 0.3);
-}
-
-/* Outline Buttons */
-.outline-btn {
-  background: rgba(255, 255, 255, 0.05);
-  color: #7df0d9;
-  border: 1px solid rgba(125, 240, 217, 0.4);
-}
-
-.outline-btn:hover {
-  background: rgba(125, 240, 217, 0.15);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 255, 200, 0.28);
 }
 
 /* =========================================
@@ -128,7 +141,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -140,11 +153,15 @@
    RESPONSIVE DESIGN
 ========================================= */
 @media (max-width: 600px) {
-  .contact-title {
+  .admin-card {
+    padding: 26px 20px;
+  }
+
+  .admin-title {
     font-size: 26px;
   }
 
-  .contact-btn {
+  .admin-btn {
     width: 100%;
   }
 }

@@ -1,87 +1,175 @@
-/* index.css - global theme, resets, utilities */
-:root{
-  --bg-1: #0b0b10;
-  --bg-2: #0f1220;
-  --card: rgba(255,255,255,0.04);
-  --muted: rgba(255,255,255,0.72);
-  --muted-2: rgba(255,255,255,0.6);
-  --accent-1: #7b5cff;
-  --accent-2: #6be8d1;
-  --accent-grad: linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  --glass: rgba(255,255,255,0.03);
+/* =========================================
+   GLOBAL THEME VARIABLES
+========================================= */
+:root {
+  /* Core Colors */
+  --bg: #0c0c16;
+  --bg-light: #141428;
+  --card: rgba(255, 255, 255, 0.05);
+
+  /* Text Colors */
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --muted-2: rgba(255, 255, 255, 0.78);
+
+  /* Neon Accents */
+  --accent-1: #6b5cff;
+  --accent-2: #7df0d9;
+
+  /* Gradient Accent */
+  --accent-grad: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+
+  /* Shadows */
+  --shadow-1: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 12px 26px rgba(0, 0, 0, 0.4);
+  --glow: 0 0 16px rgba(125, 240, 217, 0.35);
+
+  /* Radius */
   --radius: 14px;
-  --max-width: 1100px;
 
-  --space-xs: 6px;
-  --space-sm: 12px;
-  --space-md: 20px;
-  --space-lg: 40px;
-
-  --fs-xl: 2.6rem;
-  --fs-lg: 1.6rem;
-  --fs-md: 1rem;
-  --fs-sm: 0.9rem;
+  /* Smooth Animations */
+  --smooth: 0.25s ease;
 }
 
-/* Reset */
-*{box-sizing:border-box}
-html,body,#root{height:100%}
-body{
-  margin:0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
-  color:#fff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  padding:0;
+/* =========================================
+   GLOBAL RESET
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Container utility */
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 20px;
+/* =========================================
+   BODY STYLE
+========================================= */
+body {
+  background: linear-gradient(135deg, #0a0a0a, #1a002b);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.4;
+  overflow-x: hidden;
 }
 
-/* Buttons */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-  text-decoration:none;
-  border:0;
-  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-  background:var(--glass);
-  color: #fff;
-}
-.btn:focus{outline:2px solid rgba(123,92,255,0.18)}
-.btn--primary{background:var(--accent-grad); color:#06010a}
-.btn--ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted-2)}
-
-/* Cards */
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:var(--radius);
-  padding:18px;
-  border:1px solid rgba(255,255,255,0.03);
+/* =========================================
+   GLOBAL CONTAINER
+========================================= */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Typography helpers */
-.h1{font-size:var(--fs-xl); margin:0 0 var(--space-sm)}
-.h2{font-size:var(--fs-lg); margin:0 0 var(--space-sm)}
-.lead{color:var(--muted-2); font-size:1.02rem}
+/* =========================================
+   GLOBAL CARD STYLE
+   (Used across Resume, Skills, Projects, Admin)
+========================================= */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: var(--shadow-1);
+}
 
-/* Utility spacing */
-.row{display:flex;gap:20px}
-.col{flex:1}
+/* =========================================
+   GLOBAL HEADINGS
+========================================= */
+.h2, .section-title {
+  font-size: 32px;
+  font-weight: 700;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-/* Responsive helpers */
-@media (max-width:900px){
-  .row{flex-direction:column}
-  :root{--fs-xl:2rem}
+/* Subtext */
+.lead, .section-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* =========================================
+   GLOBAL BUTTONS
+========================================= */
+.btn, .primary-btn, .outline-btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--smooth);
+}
+
+.primary-btn {
+  background: var(--accent-grad);
+  color: #000;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2), var(--glow);
+}
+
+.outline-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(125, 240, 217, 0.4);
+  color: var(--accent-2);
+}
+
+.outline-btn:hover {
+  background: rgba(125, 240, 217, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Universal fade animation */
+.fade {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* =========================================
+   LIGHT MODE THEME
+========================================= */
+body.light-mode {
+  --bg: #f6f6ff;
+  --bg-light: #ffffff;
+  --text: #181818;
+  --muted: rgba(0,0,0,0.55);
+  --muted-2: rgba(0,0,0,0.75);
+
+  background: linear-gradient(135deg, #e9e9ff, #ffffff);
+}
+
+/* Cards in light mode */
+body.light-mode .card,
+body.light-mode .contact-card,
+body.light-mode .admin-card {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.09);
+  backdrop-filter: blur(12px);
+}
+
+/* Text inside cards */
+body.light-mode p,
+body.light-mode li,
+body.light-mode span {
+  color: var(--muted-2);
+}
+
+/* Neon text still works */
+body.light-mode .section-title,
+body.light-mode .h2 {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
 }
