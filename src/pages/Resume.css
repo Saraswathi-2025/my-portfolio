@@ -1,11 +1,35 @@
 .resume {
+  position: relative;
+  z-index: 20;   /* keeps Resume above background */
+  pointer-events: auto;
+}
+
+.resume-card {
+  position: relative;
+  z-index: 30;   /* ensures content is clickable */
+  pointer-events: auto;
+}
+
+.resume-download a {
+  pointer-events: auto !important; /* FORCE clickable */
+  z-index: 40;
+  position: relative;
+}
+.resume {
   padding: 120px 0 60px;
   display: flex;
   justify-content: center;
   width: 100%;
+  position: relative;
+  z-index: 50 !important;
+  pointer-events: auto !important;
 }
 
-/* Neon Glass Card */
+/* Prevent background overlays blocking clicks */
+.resume::before {
+  pointer-events: none !important;
+}
+
 .resume-card {
   width: 100%;
   max-width: 820px;
@@ -13,7 +37,6 @@
 
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
@@ -21,9 +44,12 @@
 
   position: relative;
   animation: fadeUp 0.7s ease-out;
+
+  z-index: 100 !important;
+  pointer-events: auto !important;
 }
 
-/* Animated Neon Border */
+/* Neon Border */
 .resume-card::before {
   content: "";
   position: absolute;
@@ -32,12 +58,8 @@
   border-radius: 20px;
 
   background: var(--accent-grad);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
   animation: neonFlow 4s linear infinite;
 }
 
@@ -62,7 +84,7 @@
   color: var(--muted);
 }
 
-/* Section Blocks */
+/* Section */
 .resume-section {
   margin-bottom: 28px;
 }
@@ -73,25 +95,22 @@
   background: var(--accent-grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
 }
 
-.resume-text {
+.resume-text,
+.resume-list {
   color: var(--muted-2);
   line-height: 1.6;
 }
 
 .resume-list {
   margin-left: 18px;
-  color: var(--muted-2);
-  line-height: 1.6;
-  padding-left: 0;
 }
 
-/* Download Button */
+/* Download button */
 .resume-download {
-  margin-top: 12px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .primary-btn {

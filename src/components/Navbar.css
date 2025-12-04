@@ -1,3 +1,5 @@
+/* Navbar.css — Replace entire file with this */
+
 /* =========================================
    NAVBAR BASE
 ========================================= */
@@ -52,6 +54,7 @@ body.light-mode .nav-logo {
 .nav-links {
   display: flex;
   gap: 28px;
+  align-items: center;
 }
 
 .nav-links a {
@@ -68,6 +71,7 @@ body.light-mode .nav-logo {
   text-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
 }
 
+/* NavLink active styling (react-router) */
 .nav-links a.active {
   color: #7df0d9;
   font-weight: 600;
@@ -77,13 +81,12 @@ body.light-mode .nav-logo {
 body.light-mode .nav-links a {
   color: #242424;
 }
-
 body.light-mode .nav-links a.active {
   color: #00bfb4;
 }
 
 /* =========================================
-   NEON THEME TOGGLE
+   THEME TOGGLE
 ========================================= */
 .theme-toggle {
   width: 52px;
@@ -101,6 +104,7 @@ body.light-mode .nav-links a.active {
   -webkit-backdrop-filter: blur(10px);
 
   transition: 0.3s ease;
+  margin-left: 12px;
 }
 
 .toggle-circle {
@@ -109,7 +113,6 @@ body.light-mode .nav-links a.active {
   background: var(--accent-grad);
   border-radius: 50%;
   transition: 0.3s ease;
-
   box-shadow: 0 0 10px rgba(125,240,217,0.4);
 }
 
@@ -117,17 +120,17 @@ body.light-mode .nav-links a.active {
 body.light-mode .toggle-circle {
   transform: translateX(24px);
 }
-
 body.light-mode .theme-toggle {
   background: rgba(0, 0, 0, 0.2);
   border-color: rgba(125,240,217,0.4);
 }
 
 /* =========================================
-   MOBILE MENU BUTTON
+   MOBILE MENU BUTTON (Hamburger)
+   Keep it above everything (z-index).
 ========================================= */
 .menu-btn {
-  display: none;
+  display: none; /* hidden on desktop */
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -137,7 +140,9 @@ body.light-mode .theme-toggle {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 2000;
+
+  z-index: 2100; /* very high so it always receives clicks */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .menu-btn span {
@@ -148,25 +153,26 @@ body.light-mode .theme-toggle {
   transition: 0.3s ease;
 }
 
+/* dark mode hamburger color */
 body.light-mode .menu-btn span {
   background: #1a1a1a;
 }
 
-/* Animate when open */
+/* animate open */
 .menu-btn.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
-
 .menu-btn.open span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-btn.open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
 /* =========================================
    MOBILE DROPDOWN MENU
+   Off-screen + pointer-events: none when hidden
+   On-screen + pointer-events: auto when shown
 ========================================= */
 .mobile-menu {
   position: fixed;
@@ -184,17 +190,24 @@ body.light-mode .menu-btn span {
   padding: 30px 20px;
   gap: 20px;
 
-  transition: 0.4s ease;
-  z-index: 1500;
+  transition: right 0.35s cubic-bezier(.2,.9,.2,1), opacity 0.25s ease;
+  z-index: 2000;
+
+  /* IMPORTANT: when hidden don't accept pointer events */
+  pointer-events: none;
+  opacity: 0;
 }
 
+/* show: slide in and become interactive */
 .mobile-menu.show {
   right: 0;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 /* Light mode mobile */
 body.light-mode .mobile-menu {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 /* Mobile menu links */
@@ -210,11 +223,10 @@ body.light-mode .mobile-menu {
   color: #7df0d9;
 }
 
-/* Light mode links */
+/* Light mode mobile links */
 body.light-mode .mobile-menu a {
   color: #1b1b1b;
 }
-
 body.light-mode .mobile-menu a:hover {
   color: #00bfb4;
 }

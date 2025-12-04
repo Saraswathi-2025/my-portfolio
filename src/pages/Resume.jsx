@@ -11,7 +11,6 @@ export default function Resume() {
     >
       <div className="resume-card">
 
-        {/* TITLE */}
         <h2 className="resume-title">My Resume</h2>
         <p className="resume-sub">
           A quick overview of my background, skills, and experience.
@@ -21,10 +20,10 @@ export default function Resume() {
         <div className="resume-section">
           <h3 className="resume-heading">About Me</h3>
           <p className="resume-text">
-            I am Saraswathi, a passionate and dedicated Junior Frontend Developer from Udupi, Karnataka. 
+            I am Saraswathi, a passionate and dedicated Junior Frontend Developer from Udupi, Karnataka.
             I enjoy building clean, responsive, and user-friendly websites using HTML, CSS, JavaScript, and React.
             With experience teaching computer fundamentals and programming basics, I bring strong problem-solving skills,
-            clear communication, and the ability to explain technical concepts simply. I am actively improving my 
+            clear communication, and the ability to explain technical concepts simply. I am actively improving my
             full-stack skills and aiming to begin my career in the IT industry as a Frontend Developer.
           </p>
         </div>
@@ -116,7 +115,11 @@ export default function Resume() {
 
         {/* DOWNLOAD BUTTON */}
         <div className="resume-download">
-          <a className="primary-btn" href={process.env.PUBLIC_URL + "/Saraswathi_ATS.pdf"} download>
+          <a
+  className="primary-btn"
+  href="/Saraswathi_ATS.pdf"
+  download="Saraswathi_Resume.pdf"
+>
   ⬇ Download Resume (PDF)
 </a>
         </div>
