@@ -48,7 +48,8 @@
   "id": "personal-web",
   "title": "Personal Website",
   "subtitle": "HTML • CSS • JavaScript",
-  "description": "A simple and responsive personal website built using HTML, CSS, and JavaScript. Includes About, Skills, and Contact sections. One of my first portfolio websites.",
+  "description": "A simple and responsive personal website built using HTML, CSS, and JavaScript. Includes About, Skills,
+      and Contact sections. One of my first portfolio websites.",
   "github": "https://github.com/Saraswathi-2025/personal-web",
   "screenshots": [
     "/screenshots/personal-web1.png",
