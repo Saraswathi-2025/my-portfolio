@@ -1,167 +1,142 @@
-/* =========================================
-   ADMIN PAGE LAYOUT
-========================================= */
+/* Admin panel styles — admin-only theme + layout */
+
+/* Root */
+.admin-root { padding-top: 90px; padding-bottom: 40px; }
+
+/* Container */
 .admin-page {
-  min-height: 100vh;
-  padding: 110px 20px 60px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 22px;
+  align-items: start;
 }
 
-/* =========================================
-   ADMIN CARD (Glassmorphism)
-========================================= */
-.admin-card {
-  width: 100%;
-  max-width: 680px;
-  padding: 34px 28px;
-
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 18px;
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-
-  position: relative;
-  animation: fadeUp 0.7s ease-out;
+/* Fallback single-column on small screens */
+@media (max-width: 940px) {
+  .admin-page { grid-template-columns: 1fr; padding: 20px 0; }
 }
 
-/* Glowing Border Animation */
-.admin-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 18px;
-
-  background: linear-gradient(135deg, #6b5cff, #7df0d9);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  animation: glow 4.5s linear infinite;
-  pointer-events: none;
+/* Card baseline */
+.admin-left.card, .admin-list.card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
-/* =========================================
-   TITLES
-========================================= */
-.admin-title {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 10px;
+/* Left column (form) */
+.admin-left-inner h3 { margin: 0 0 8px; font-size: 18px; }
+.admin-top-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.admin-theme-toggle label { display:block; font-size:12px; color:var(--muted); margin-bottom:6px; }
 
-  background: linear-gradient(90deg, #6b5cff, #7df0d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.small-toggle {
+  padding:6px 8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  cursor:pointer;
 }
+.small-toggle.on { background: rgba(255,255,255,0.12); }
 
-.admin-sub {
-  font-size: 15px;
-  color: var(--muted);
-  margin-bottom: 26px;
-  line-height: 1.5;
+/* fields */
+.field { margin-bottom:10px; }
+.field label { display:block; font-size:13px; color:var(--muted); margin-bottom:6px; }
+.field input, .field textarea, .field select {
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  color:var(--text);
+  outline:none;
 }
+.field textarea { min-height:86px; resize:vertical; }
 
-/* =========================================
-   FORM AREA
-========================================= */
-.admin-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* preview strip */
+.preview-strip { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+.preview-thumb { width:72px; height:56px; border-radius:8px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.06); }
+.preview-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.preview-thumb.broken { filter:grayscale(0.6) contrast(0.8); position:relative; }
+.preview-thumb .broken-tag { position:absolute; bottom:4px; left:4px; font-size:10px; background:rgba(0,0,0,0.6); color:#fff; padding:2px 6px; border-radius:6px; }
+
+/* empty preview */
+.preview-empty { color:var(--muted); font-size:13px; }
+
+/* form actions */
+.admin-form-actions { display:flex; gap:10px; margin-top:12px; }
+.admin-btn { padding:10px 14px; border-radius:10px; font-weight:600; cursor:pointer; border:0; }
+.primary-btn { background: linear-gradient(90deg,#6b5cff,#7df0d9); color:#000; }
+.outline-btn { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); }
+
+/* info text */
+.admin-hint { font-size:12px; color:var(--muted); margin-top:12px; }
+
+/* Right column */
+.admin-right { display:flex; flex-direction:column; gap:12px; }
+
+/* controls */
+.admin-controls { display:flex; gap:12px; align-items:center; margin-bottom:8px; }
+.search-input { flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); color:var(--text); }
+.category-select { padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); color:var(--text); }
+
+/* list card */
+.admin-list { padding:14px; display:flex; flex-direction:column; gap:12px; }
+.list-head { display:flex; justify-content:space-between; align-items:center; }
+.list-items { display:flex; flex-direction:column; gap:10px; }
+
+/* list item */
+.list-item { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); }
+.item-left { display:flex; gap:12px; align-items:center; }
+.item-thumb { width:84px; height:60px; border-radius:8px; overflow:hidden; background:rgba(255,255,255,0.03); display:grid; place-items:center; }
+.item-thumb img { width:100%; height:100%; object-fit:cover; }
+.thumb-placeholder { color:var(--muted); font-size:12px; }
+.item-meta { }
+.item-title { font-weight:700; }
+.item-sub { color:var(--muted); font-size:13px; }
+.item-cat { font-size:12px; color:var(--muted); margin-top:6px; }
+
+/* item actions */
+.item-actions { display:flex; gap:8px; align-items:center; }
+.small-btn { padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); cursor:pointer; }
+.small-btn.danger { background: linear-gradient(90deg,#ff6b6b,#ffb0b0); color:#200; border:0; }
+
+/* empty */
+.empty-list { color:var(--muted); padding:12px; text-align:center; }
+
+/* modal details */
+.admin-modal { position:fixed; inset:0; background:rgba(0,0,0,0.7); display:grid; place-items:center; z-index:9999; padding:20px; }
+.admin-modal-inner { width:100%; max-width:1000px; background:rgba(255,255,255,0.03); border-radius:12px; padding:18px; position:relative; display:flex; flex-direction:column; gap:12px; border:1px solid rgba(255,255,255,0.06); }
+.modal-close { position:absolute; top:12px; right:12px; background:rgba(255,255,255,0.06); border:0; padding:8px 10px; border-radius:8px; cursor:pointer; }
+.modal-top h3 { margin:0; }
+.modal-sub { color:var(--muted); margin-top:4px; }
+
+/* modal body layout */
+.modal-body { display:flex; gap:14px; align-items:flex-start; }
+.modal-preview { flex:1; display:grid; place-items:center; min-height:220px; background:rgba(255,255,255,0.02); border-radius:8px; padding:16px; }
+.modal-preview img { max-width:100%; max-height:60vh; object-fit:contain; border-radius:8px; }
+.modal-side { width:320px; display:flex; flex-direction:column; gap:10px; }
+.modal-desc { color:var(--muted); line-height:1.5; }
+.thumb-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.thumb-small { width:64px; height:46px; padding:0; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02); cursor:pointer; }
+.thumb-small img { width:100%; height:100%; object-fit:cover; }
+.thumb-small.active { box-shadow:0 6px 18px rgba(0,255,200,0.18); border-color:rgba(125,240,217,0.6); transform:translateY(-2px); }
+
+/* modal nav */
+.modal-nav { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:6px; }
+.nav-btn { padding:8px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:0; cursor:pointer; }
+.nav-count { color:var(--muted); }
+
+/* login card */
+.admin-login .admin-card { max-width:720px; margin:40px auto; text-align:center; }
+.admin-login-actions { display:flex; justify-content:center; gap:12px; margin-top:14px; }
+.admin-note { color:var(--muted); margin-top:10px; font-size:13px; }
+
+/* admin-light (scoped theme) */
+.admin-light .admin-left.card,
+.admin-light .admin-list.card,
+.admin-light .admin-modal-inner {
+  background: rgba(0,0,0,0.04);
+  color: #111;
 }
-
-/* Inputs */
-.admin-input,
-.admin-textarea {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 15px;
-  color: white;
-
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-
-  outline: none;
-  transition: 0.25s ease;
-}
-
-/* Textarea height */
-.admin-textarea {
-  height: 110px;
-  resize: vertical;
-}
-
-/* Input Focus Effect */
-.admin-input:focus,
-.admin-textarea:focus {
-  border-color: rgba(125, 240, 217, 0.45);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* =========================================
-   BUTTON
-========================================= */
-.admin-btn {
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  border: none;
-  transition: 0.3s ease;
-}
-
-.primary-btn {
-  background: linear-gradient(90deg, #6b5cff, #7df0d9);
-  color: #000;
-}
-
-.primary-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 255, 200, 0.28);
-}
-
-/* =========================================
-   ANIMATIONS
-========================================= */
-@keyframes glow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-@media (max-width: 600px) {
-  .admin-card {
-    padding: 26px 20px;
-  }
-
-  .admin-title {
-    font-size: 26px;
-  }
-
-  .admin-btn {
-    width: 100%;
-  }
-}
+.admin-light .small-toggle.on { background: rgba(255,255,255,0.12); }
