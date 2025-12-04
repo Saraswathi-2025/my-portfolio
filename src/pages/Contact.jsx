@@ -21,7 +21,7 @@ export default function Contact() {
         <div className="contact-actions">
           <a
             className="contact-btn primary-btn"
-            href="saraswathiachari02@gmail.com"
+            href="mailto:saraswathiachari02@gmail.com"
           >
             📧 Email
           </a>

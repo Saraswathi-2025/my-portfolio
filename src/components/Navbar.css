@@ -19,6 +19,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   z-index: 1000;
+  transition: 0.3s ease;
+}
+
+/* Light mode navbar */
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 /* =========================================
@@ -28,6 +35,13 @@
   font-size: 22px;
   font-weight: 700;
   background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light mode */
+body.light-mode .nav-logo {
+  background: linear-gradient(90deg, #4a17ff, #00c2c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -49,141 +63,40 @@
   position: relative;
 }
 
-/* Hover Glow */
 .nav-links a:hover {
   color: white;
   text-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
 }
 
-/* Active Link */
 .nav-links a.active {
   color: #7df0d9;
   font-weight: 600;
 }
 
-/* =========================================
-   MOBILE MENU BUTTON (Hamburger)
-========================================= */
-.menu-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-
-  width: 30px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  z-index: 2000;
+/* Light mode links */
+body.light-mode .nav-links a {
+  color: #242424;
 }
 
-.menu-btn span {
-  width: 100%;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-
-/* Animate when open */
-.menu-btn.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.menu-btn.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-btn.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+body.light-mode .nav-links a.active {
+  color: #00bfb4;
 }
 
 /* =========================================
-   MOBILE DROPDOWN MENU
-========================================= */
-.mobile-menu {
-  position: fixed;
-  top: 64px;
-  right: -100%;
-  width: 60%;
-  height: calc(100% - 64px);
-
-  backdrop-filter: blur(12px);
-  background: rgba(0, 0, 0, 0.55);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-
-  display: flex;
-  flex-direction: column;
-  padding: 30px 20px;
-  gap: 20px;
-
-  transition: 0.4s ease;
-  z-index: 1500;
-}
-
-.mobile-menu.show {
-  right: 0;
-}
-
-/* Mobile menu links */
-.mobile-menu a {
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  padding: 6px 0;
-  transition: 0.3s;
-}
-
-.mobile-menu a:hover {
-  color: #7df0d9;
-}
-
-
-/* =========================================
-   RESPONSIVE BREAKPOINTS
-========================================= */
-
-/* Tablet + Mobile */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-
-  .menu-btn {
-    display: flex;
-  }
-
-  .navbar {
-    padding: 0 20px;
-  }
-}
-
-/* Small Phones */
-@media (max-width: 500px) {
-  .nav-logo {
-    font-size: 20px;
-  }
-
-  .mobile-menu {
-    width: 75%;
-  }
-}
-/* ============================
    NEON THEME TOGGLE
-============================ */
+========================================= */
 .theme-toggle {
   width: 52px;
   height: 26px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
   display: flex;
   align-items: center;
   padding: 3px;
   cursor: pointer;
-  position: relative;
 
-  /* glass look */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
@@ -200,13 +113,132 @@
   box-shadow: 0 0 10px rgba(125,240,217,0.4);
 }
 
-/* Light mode active — circle slides right */
+/* Light mode toggle */
 body.light-mode .toggle-circle {
   transform: translateX(24px);
 }
 
-/* Background glow changes */
 body.light-mode .theme-toggle {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-color: rgba(125,240,217,0.4);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.menu-btn span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+body.light-mode .menu-btn span {
+  background: #1a1a1a;
+}
+
+/* Animate when open */
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================================
+   MOBILE DROPDOWN MENU
+========================================= */
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  right: -110%;
+  width: 60%;
+  height: calc(100% - 64px);
+
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 20px;
+
+  transition: 0.4s ease;
+  z-index: 1500;
+}
+
+.mobile-menu.show {
+  right: 0;
+}
+
+/* Light mode mobile */
+body.light-mode .mobile-menu {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #7df0d9;
+}
+
+/* Light mode links */
+body.light-mode .mobile-menu a {
+  color: #1b1b1b;
+}
+
+body.light-mode .mobile-menu a:hover {
+  color: #00bfb4;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-btn {
+    display: flex;
+  }
+  .navbar {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-logo {
+    font-size: 20px;
+  }
+  .mobile-menu {
+    width: 75%;
+  }
 }

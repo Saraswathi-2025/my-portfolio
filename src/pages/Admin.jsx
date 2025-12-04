@@ -31,7 +31,7 @@ export default function Admin() {
       .map((s) => s.trim())
       .filter(Boolean);
 
-    const newP = {
+    const newProject = {
       id: form.id,
       title: form.title,
       subtitle: form.subtitle,
@@ -41,10 +41,11 @@ export default function Admin() {
     };
 
     const existing = JSON.parse(localStorage.getItem("extraProjects")) || [];
-    existing.push(newP);
-    localStorage.setItem("extraProjects", JSON.stringify(existing));
+    existing.push(newProject);
 
+    localStorage.setItem("extraProjects", JSON.stringify(existing));
     alert("Project Added ✔");
+
     setForm({
       id: "",
       title: "",
@@ -73,13 +74,14 @@ export default function Admin() {
     );
   }
 
-  /* ---------------------- DASHBOARD UI ---------------------- */
+  /* ---------------------- ADMIN DASHBOARD ---------------------- */
   return (
     <div className="admin-page">
       <div className="admin-card">
         <h2 className="admin-title">Add New Project</h2>
 
         <div className="admin-form">
+
           <input
             className="admin-input"
             placeholder="Project ID"
@@ -105,14 +107,18 @@ export default function Admin() {
             className="admin-textarea"
             placeholder="Description"
             value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, description: e.target.value })
+            }
           />
 
           <input
             className="admin-input"
             placeholder="GitHub URL"
             value={form.github}
-            onChange={(e) => setForm({ ...form, github: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, github: e.target.value })
+            }
           />
 
           <textarea

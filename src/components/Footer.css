@@ -1,10 +1,10 @@
 /* =========================================
-   FOOTER CONTAINER
+   FOOTER BASE
 ========================================= */
 .footer {
   width: 100%;
-  padding: 26px 0;
-  margin-top: 80px;
+  padding: 28px 0;
+  margin-top: 90px;
 
   display: flex;
   justify-content: center;
@@ -12,18 +12,51 @@
 
   text-align: center;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.03);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.35);
 
   animation: fadeUp 0.7s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle neon top border line */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 80%;
+  height: 2px;
+
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  opacity: 0.65;
+  box-shadow: 0 0 10px rgba(125,240,217,0.6);
+}
+
+/* Light mode */
+body.light-mode .footer {
+  background: rgba(0, 0, 0, 0.06);
+  color: #2a2a2a;
+  border-top-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .footer::before {
+  background: linear-gradient(90deg, #4a17ff, #00c2c7);
+  opacity: 0.8;
 }
 
 /* =========================================
-   FOOTER CONTENT
+   CONTENT
 ========================================= */
 .footer-inner {
   display: flex;
@@ -37,6 +70,7 @@
   font-weight: 400;
 }
 
+/* Gradient name (brand signature) */
 .footer-name {
   background: linear-gradient(90deg, #6b5cff, #7df0d9);
   -webkit-background-clip: text;
@@ -44,8 +78,15 @@
   font-weight: 600;
 }
 
+/* Light mode */
+body.light-mode .footer-name {
+  background: linear-gradient(90deg, #4a17ff, #00c2c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* =========================================
-   ANIMATION
+   ANIMATIONS
 ========================================= */
 @keyframes fadeUp {
   from {
@@ -59,11 +100,15 @@
 }
 
 /* =========================================
-   MOBILE RESPONSIVE
+   RESPONSIVE DESIGN
 ========================================= */
 @media (max-width: 600px) {
   .footer {
     font-size: 13px;
     padding: 22px 0;
+  }
+
+  .footer::before {
+    width: 90%;
   }
 }

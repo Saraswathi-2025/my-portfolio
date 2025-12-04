@@ -3,7 +3,7 @@
 ========================================= */
 .admin-page {
   min-height: 100vh;
-  padding: 90px 20px;
+  padding: 110px 20px 60px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -27,7 +27,7 @@
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 
   position: relative;
-  animation: fadeUp 0.8s ease-out;
+  animation: fadeUp 0.7s ease-out;
 }
 
 /* Glowing Border Animation */
@@ -40,12 +40,12 @@
 
   background: linear-gradient(135deg, #6b5cff, #7df0d9);
   -webkit-mask:
-     linear-gradient(#fff 0 0) content-box,
-     linear-gradient(#fff 0 0);
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 
-  animation: glow 5s linear infinite;
+  animation: glow 4.5s linear infinite;
   pointer-events: none;
 }
 

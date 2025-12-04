@@ -5,39 +5,32 @@ import "./Navbar.css";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  /* Toggle Theme */
+  const toggleTheme = () => {
+    document.body.classList.toggle("light-mode");
+  };
+
   return (
     <nav className="navbar">
 
-      {/* Logo */}
+      {/* LOGO */}
       <div className="nav-logo">Saraswathi</div>
 
-      {/* Desktop Links */}
+      {/* DESKTOP LINKS */}
       <div className="nav-links">
         <NavLink to="/" end>Home</NavLink>
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/skills">Skills</NavLink>
         <NavLink to="/resume">Resume</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        
       </div>
-      <nav className="navbar">
-  <div className="nav-logo">Saraswathi</div>
 
-  <div className="nav-links">
-    <NavLink to="/" end>Home</NavLink>
-    <NavLink to="/projects">Projects</NavLink>
-    <NavLink to="/skills">Skills</NavLink>
-    <NavLink to="/resume">Resume</NavLink>
-    <NavLink to="/contact">Contact</NavLink>
-  </div>
+      {/* THEME TOGGLE */}
+      <div className="theme-toggle" onClick={toggleTheme}>
+        <div className="toggle-circle"></div>
+      </div>
 
-  {/* Neon Theme Toggle */}
-  <div className="theme-toggle" onClick={() => document.body.classList.toggle("light-mode")}>
-    <div className="toggle-circle"></div>
-  </div>
-</nav>
-
-      {/* Mobile Menu Button */}
+      {/* MOBILE MENU BUTTON */}
       <button
         className={`menu-btn ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -48,13 +41,13 @@ export default function Navbar() {
         <span></span>
       </button>
 
-      {/* Mobile Dropdown Menu */}
+      {/* MOBILE DROPDOWN MENU */}
       <div className={`mobile-menu ${menuOpen ? "show" : ""}`}>
-        <NavLink onClick={() => setMenuOpen(false)} to="/" end>Home</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} to="/projects">Projects</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} to="/skills">Skills</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} to="/resume">Resume</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} to="/contact">Contact</NavLink>
+        <NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink>
+        <NavLink to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavLink>
+        <NavLink to="/skills" onClick={() => setMenuOpen(false)}>Skills</NavLink>
+        <NavLink to="/resume" onClick={() => setMenuOpen(false)}>Resume</NavLink>
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
       </div>
 
     </nav>

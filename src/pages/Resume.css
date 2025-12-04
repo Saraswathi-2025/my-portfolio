@@ -1,65 +1,216 @@
-/* Resume page styles - premium, responsive */
-.resume {
-  padding: 36px 0;
+/* =========================================
+   PAGE STRUCTURE
+========================================= */
+.resume-page {
+  padding: 50px 0;
+  animation: fadeIn 0.7s ease-out;
 }
 
-.resume-head { text-align:center; margin-bottom:18px; }
-.section-title { font-size:32px; font-weight:700; }
-.section-sub { color:var(--muted); margin-top:6px; }
+/* =========================================
+   HEADER
+========================================= */
+.resume-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
 
-.resume-grid {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 22px;
-  max-width: 1100px;
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.download-btn {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+
+  background: linear-gradient(90deg, #6b5cff, #7df0d9);
+  color: black;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(125, 240, 217, 0.35);
+}
+
+/* =========================================
+   RESUME PREVIEW CARD
+========================================= */
+.resume-card {
+  padding: 25px;
+  border-radius: 20px;
+  margin: 0 auto 50px;
+  width: 100%;
+  max-width: 900px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon glowing border */
+.resume-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+
+  background: linear-gradient(135deg, #6b5cff, #7df0d9);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  animation: glow 4s linear infinite;
+}
+
+.resume-preview {
+  width: 100%;
+  height: 520px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile PDF height */
+@media (max-width: 768px) {
+  .resume-preview {
+    height: 400px;
+  }
+}
+
+/* =========================================
+   EDUCATION SECTION
+========================================= */
+.education-section {
+  max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
-/* Left column */
-.resume-left {
-  padding: 20px;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+.edu-title {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.resume-profile {
-  display:flex;
-  gap:12px;
-  align-items:center;
+/* Timeline container */
+.timeline {
+  position: relative;
+  margin-left: 30px;
+  padding-left: 28px;
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
 }
 
-.resume-profile img {
-  width:72px;
-  height:72px;
-  border-radius:12px;
-  object-fit:cover;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+/* Animated glowing line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 2px;
+  background: linear-gradient(180deg, #6b5cff, #7df0d9);
+  animation: pulseLine 4s ease-in-out infinite;
+  opacity: 0.5;
 }
 
-.resume-name { margin:0; font-size:18px; font-weight:700; }
-.resume-role { margin:0; color:var(--muted); font-size:14px; }
+/* Timeline dot */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--accent-grad);
+  border-radius: 50%;
 
-.resume-section h4 { margin:0 0 8px; font-size:16px; }
-.resume-section p { color:var(--muted-2); line-height:1.6; }
+  position: absolute;
+  left: -37px;
+  margin-top: 3px;
 
-/* resume item */
-.resume-item { margin-bottom:8px; }
-.ri-meta { display:flex; justify-content:space-between; align-items:center; gap:12px; }
-.ri-date { color:var(--muted); font-size:13px; }
+  box-shadow: 0 0 14px rgba(125, 240, 217, 0.55);
+  animation: pulseDot 2.2s infinite ease-in-out;
+}
 
-/* right column mini cards */
-.resume-right { display:flex; flex-direction:column; gap:14px; }
-.resume-mini { padding:16px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); }
-.mini-list { list-style:none; padding:0; margin:8px 0 0; color:var(--muted-2); }
-.mini-list li { margin:8px 0; }
+/* Entry */
+.timeline-item {
+  margin-bottom: 34px;
+  position: relative;
+}
 
-/* download btn */
-.resume-download { align-self:flex-start; margin-top:6px; }
+.timeline-content h4 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
 
-/* responsive */
-@media (max-width: 900px) {
-  .resume-grid { grid-template-columns: 1fr; }
-  .resume-download { align-self:center; }
-  .resume-profile { justify-content:center; text-align:center; }
+.timeline-year {
+  color: var(--accent-2);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.timeline-desc {
+  color: var(--muted-2);
+  line-height: 1.6;
+  font-size: 14px;
+  max-width: 600px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .timeline {
+    margin-left: 18px;
+    padding-left: 22px;
+  }
+
+  .timeline-dot {
+    left: -32px;
+  }
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes glow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseLine {
+  0% { opacity: 0.45; }
+  50% { opacity: 1; }
+  100% { opacity: 0.45; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

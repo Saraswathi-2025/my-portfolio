@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <div className="home-page">
 
+      {/* MAIN HERO SECTION */}
       <div className="home-container">
 
         {/* LEFT = PROFILE CARD */}
@@ -37,7 +38,7 @@ export default function Home() {
 
       </div>
 
-      {/* ⭐⭐⭐ TESTIMONIALS SECTION GOES HERE ⭐⭐⭐ */}
+      {/* ⭐⭐⭐ TESTIMONIALS SECTION ⭐⭐⭐ */}
       <div className="testimonials-section fade">
         <h2 className="testimonials-title">What People Say</h2>
 
@@ -66,7 +67,6 @@ export default function Home() {
 
         </div>
       </div>
-      {/* END TESTIMONIALS */}
 
     </div>
   );

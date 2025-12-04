@@ -6,45 +6,59 @@ export default function Skills() {
 
   const groups = [
     {
-      title: "Frontend",
-      items: ["HTML", "CSS", "JavaScript (ES6+)", "React"],
+      title: "Frontend Development",
+      items: [
+        "HTML",
+        "CSS",
+        "JavaScript (ES6+)",
+        "React",
+        "Responsive Design",
+      ],
     },
     {
-      title: "Tools",
-      items: ["Git & GitHub", "VS Code", "Figma", "React Router"],
+      title: "Tools & Workflow",
+      items: ["Git & GitHub", "VS Code", "Figma (UI/UX)", "React Router"],
     },
     {
       title: "Soft Skills",
-      items: ["Problem Solving", "Communication", "Time Management", "Collaboration"],
+      items: [
+        "Problem Solving",
+        "Communication",
+        "Time Management",
+        "Team Collaboration",
+      ],
     },
   ];
 
   return (
     <motion.section
       className="skills container"
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      {/* Page Header */}
+      {/* Header */}
       <header className="skills-head">
         <h2 className="section-title">Skills</h2>
-        <p className="section-sub">Technologies and abilities I work with every day.</p>
+        <p className="section-sub">
+          Technologies and tools I use to build clean and modern web interfaces.
+        </p>
       </header>
 
-      {/* Skills Grid */}
+      {/* Skill Cards Grid */}
       <div className="skills-grid">
-        {groups.map((group, i) => (
+        {groups.map((group, index) => (
           <motion.div
             key={group.title}
-            className="skill-card card"
-            initial={{ opacity: 0, y: 15 }}
+            className="skill-card"
+            initial={{ opacity: 0, y: 18 }}
             animate={{
               opacity: 1,
               y: 0,
-              transition: { delay: 0.1 * i },
+              transition: { delay: index * 0.12 },
             }}
+            whileHover={{ scale: 1.04 }}
           >
-            <h4 className="skill-title">{group.title}</h4>
+            <h3 className="skill-title">{group.title}</h3>
 
             <ul className="skill-list">
               {group.items.map((item) => (
