@@ -26,7 +26,7 @@ export default function Projects() {
     let mounted = true;
     async function load() {
       try {
-        const res = await fetch(process.env.PUBLIC_URL + "/data/projects.json");
+        const res = await fetch(process.env.PUBLIC_URL + "public/data/projects.json");
         const base = await res.json();
         const extra = JSON.parse(localStorage.getItem("extraProjects")) || [];
         const all = [...(base.projects || []), ...extra];
