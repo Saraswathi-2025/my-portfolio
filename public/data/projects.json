@@ -43,6 +43,22 @@
         "/screenshots/SMCMC-6.png",
         "/screenshots/SMCMC-7.png"
       ]
-    }
+    },
+    {
+  "id": "personal-web",
+  "title": "Personal Web",
+  "subtitle": "HTML • CSS • JavaScript",
+  "description": "A simple personal website built using HTML, CSS, and JavaScript. Includes About, Skills, and Contact sections.",
+  "github": "https://saraswathi-2025.github.io/personal-web/",
+  "screenshots": [
+    "/screenshots/personal-web1.png",
+    "/screenshots/personal-web2.png",
+    "/screenshots/personal-web3.png",
+    "/screenshots/personal-web4.png",
+    "/screenshots/personal-web5.png",
+    "/screenshots/personal-web6.png",
+    "/screenshots/personal-web7.png"
+  ]
+}
   ]
 }
