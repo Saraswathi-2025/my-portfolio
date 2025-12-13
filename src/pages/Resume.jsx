@@ -83,7 +83,7 @@ export default function Resume() {
         <div className="resume-section">
           <h3 className="resume-heading">Education</h3>
           <ul className="resume-list">
-            <li><strong>BCA:</strong> S.R.S.M.N.G.F.G. College, Barkur — 73.18% (2025)</li>
+            <li><strong>BCA:</strong> S.R.S.M.N.G.F.G. College, Barkur — 73.14% (2024)</li>
             <li><strong>PUC:</strong> Crossland PU College, Brahmavara — 81.67% (2021)</li>
             <li><strong>SSLC:</strong> Govt High School Avarse — 78.88% (2019)</li>
           </ul>
