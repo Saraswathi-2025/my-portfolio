@@ -6,7 +6,7 @@
       "subtitle": "Tech used: HTML · CSS · JavaScript · React",
       "category": "HTML/CSS",
       "description": "A modern portfolio website built to showcase my skills and learning journey.",
-      "github": "https://github.com/saraswathi-2025/MyPortfolio/",
+      "github": "https://saraswathi-2025.github.io/MyPortfolio/",
       "screenshots": [
         "/screenshots/portfolio-1.png",
         "/screenshots/portfolio-2.png",
@@ -22,7 +22,7 @@
       "subtitle": "Tech used: JavaScript · HTML · CSS",
       "category": "JavaScript",
       "description": "A simple music player built using DOM interaction and audio APIs.",
-      "github": "https://github.com/saraswathi-2025/Music-Player/",
+      "github": "https://saraswathi-2025.github.io/Music-Player/",
       "screenshots": [
         "/screenshots/music-player-1.png",
         "/screenshots/music-player-2.png",
@@ -38,7 +38,7 @@
       "subtitle": "Tech used: HTML · CSS · JavaScript",
       "category": "JavaScript",
       "description": "A basic student registration form with validation and localStorage saving.",
-      "github": "https://github.com/saraswathi-2025/SMCEC/",
+      "github": " https://saraswathi-2025.github.io/SMCEC/",
       "screenshots": [
         "/screenshots/SMCMC-1.png",
         "/screenshots/SMCMC-2.png",
@@ -56,7 +56,7 @@
       "subtitle": "Tech used: HTML · CSS",
       "category": "React",
       "description": "A simple personal website built using HTML and CSS.",
-      "github": "https://github.com/saraswathi-2025/personal-web/",
+      "github": "https://saraswathi-2025.github.io/personal-web/",
       "screenshots": [
         "/screenshots/personal-web1.png",
         "/screenshots/personal-web2.png",
