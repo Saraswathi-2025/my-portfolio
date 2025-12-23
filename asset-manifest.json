@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/saraswathi-webdev/static/css/main.1e4a280f.css",
-    "main.js": "/saraswathi-webdev/static/js/main.b7100fc8.js",
+    "main.css": "/saraswathi-webdev/static/css/main.921fb3e5.css",
+    "main.js": "/saraswathi-webdev/static/js/main.bf504cc0.js",
     "index.html": "/saraswathi-webdev/index.html",
-    "main.1e4a280f.css.map": "/saraswathi-webdev/static/css/main.1e4a280f.css.map",
-    "main.b7100fc8.js.map": "/saraswathi-webdev/static/js/main.b7100fc8.js.map"
+    "main.921fb3e5.css.map": "/saraswathi-webdev/static/css/main.921fb3e5.css.map",
+    "main.bf504cc0.js.map": "/saraswathi-webdev/static/js/main.bf504cc0.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e4a280f.css",
-    "static/js/main.b7100fc8.js"
+    "static/css/main.921fb3e5.css",
+    "static/js/main.bf504cc0.js"
   ]
 }
