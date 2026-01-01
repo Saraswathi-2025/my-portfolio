@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Saraswathi WebDev Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal portfolio website showcasing my web development projects, skills, and journey as a frontend developer.
 
-## Available Scripts
+🔗 Live Demo:  
+https://saraswathi-2025.github.io/saraswathi-webdev/
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Modern responsive UI
+- Built with React
+- Smooth animations using Framer Motion
+- Projects section with live demos
+- Resume download option
+- Contact section
+- Demo Admin page (UI only)
+- 404 Not Found page
+- Deployed on GitHub Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Framer Motion
+- Git & GitHub
+- GitHub Pages
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
+saraswathi-webdev/ 
+├── public/ 
+│   ├── data/
+│   ├── assets/
+│   └── index.html
+├── src/ 
+│   ├── components/ 
+│   ├── pages/
+│   ├── styles/ 
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── package.json 
+├── README.md 
+└── vite.config.js /
+react config
+ ---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔐 Admin Page (Demo Only)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The Admin page is *frontend-only*
+- Used only for UI demonstration
+- No real backend or authentication
+- Admin password is stored in .env
+- Not meant for production use
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Setup & Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository
+```bash
+git clone https://github.com/saraswathi-2025/saraswathi-webdev.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1.Move into the project folder
+- cd saraswathi-webdev
+2.Install dependencies
+npm install
+3.Start development server
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🚀 Deployment
+This project is deployed using GitHub Pages.
+Copy code
+Bash
+npm run build
+npm run deploy
+📌 Notes
+This is a portfolio project
+Focused on frontend skills and UI
+More improvements and polishing planned
+Backend integration may be added later
+👩‍💻 Author
+Saraswathi
+Frontend Developer (Learning Phase)
+Passionate about building real-world web applications
+📜 License
+This project is for learning and personal portfolio use.
