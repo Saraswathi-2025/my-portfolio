@@ -32,7 +32,7 @@
 }
 
 /* =========================================
-   ROOT LAYOUT (STICKY FOOTER – CORRECT)
+   ROOT LAYOUT
 ========================================= */
 html,
 body {
@@ -46,10 +46,9 @@ body {
 }
 
 /* =========================================
-   BODY (NAVBAR SPACING BELONGS HERE)
+   BODY (BACKGROUND ONLY – NO LAYOUT)
 ========================================= */
 body {
-  padding-top: 80px; /* navbar height */
   background: linear-gradient(135deg, #0a0a0a, #1a002b);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -58,11 +57,11 @@ body {
 }
 
 /* =========================================
-   MAIN CONTENT (PUSH FOOTER DOWN)
+   MAIN CONTENT (NAVBAR OFFSET HERE)
 ========================================= */
 .app-main {
   flex: 1;
-  display: block;
+  padding-top: 80px; /* navbar height */
 }
 
 /* =========================================
@@ -189,7 +188,7 @@ body.light-mode li {
    RESPONSIVE
 ========================================= */
 @media (max-width: 600px) {
-  body {
+  .app-main {
     padding-top: 72px;
   }
 
